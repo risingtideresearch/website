@@ -1,0 +1,94 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #b7c9d2;
+  }
+} */
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.125rem;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  word-break: keep-all;
+  color: var(--text-primary);
+  margin: 2rem 0 5rem 0;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 130%;
+  text-wrap: balance;
+  color: var(--text-primary);
+  border-bottom: 1px solid;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 130%;
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  margin: 4rem 0;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin: 1.5rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}

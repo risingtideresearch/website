@@ -1,10 +1,10 @@
-import { RiBookletLine} from 'react-icons/ri'
+import {RiArchive2Line} from 'react-icons/ri'
 import {defineField, defineType} from 'sanity'
 
-export const program = defineType({
-  name: 'program',
+export const activity = defineType({
+  name: 'activity',
   type: 'document',
-  icon: RiBookletLine,
+  icon: RiArchive2Line,
   fields: [
     defineField({
       name: 'name',
@@ -19,17 +19,16 @@ export const program = defineType({
         slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     }),
-
     defineField({
-      name: 'team',
+      name: 'programs',
       type: 'array',
       of: [
         defineField({
-          name: 'person',
+          name: 'program',
           type: 'reference',
           to: [
             {
-              type: 'person',
+              type: 'program',
             },
           ],
         }),

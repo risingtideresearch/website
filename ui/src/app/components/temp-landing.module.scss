@@ -9,17 +9,18 @@
     font-size: 1.25rem;
     line-height: 140%;
     text-wrap: balance;
-    @media (max-width: 600px) {
-        font-size: 1rem;
+    @media (max-width: 800px) {
+      font-size: 1rem;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 1.75rem 6rem 1.75rem;
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -29,8 +30,17 @@
   padding: 0.75rem;
   border: 2px solid #000;
 
-  @media (max-width: 600px) {
+  @media (max-width: 460px) {
     border: 1.5px solid #000;
+  }
+}
+
+.logo {
+  @extend .panel;
+  padding: 0;
+  border: none;
+  svg {
+    display: block;
   }
 }
 
@@ -41,7 +51,7 @@
   width: 100%;
   max-width: 28rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     position: static;
   }
 
@@ -61,7 +71,10 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     position: static;
+    p {
+      font-size: 0.75rem;
+    }
   }
 }

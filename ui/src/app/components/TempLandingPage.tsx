@@ -1,13 +1,10 @@
 import Image from "next/image";
 import styles from "./temp-landing.module.scss";
+import { Homepage } from "@/sanity/lib/utils";
 
-function NonBreakingText({ children }: { children: string }) {
-  return <>{children.replace(/-/g, "\u2011")}</>;
-}
-
-export default function TempLandingPage({ content }) {
+export default function TempLandingPage({ content }: { content: Homepage }) {
   const time = new Date(content._updatedAt);
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -22,15 +19,13 @@ export default function TempLandingPage({ content }) {
           height="1280"
           alt="Rising Tide Research Foundation logo"
           className={` ${styles.panel}`}
-          loading={'eager'}
+          loading={"eager"}
         />
-        <p>
-          {content.description}
-        </p>
+        <p>{content.description}</p>
       </div>
 
       <div className={`${styles.updated}`}>
-        <p>Updated {time.toLocaleDateString('en-CA', options)}</p>
+        <p>Updated {time.toLocaleDateString("en-CA", options)}</p>
       </div>
     </div>
   );

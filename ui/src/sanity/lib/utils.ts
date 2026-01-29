@@ -1,9 +1,10 @@
 import { sanityFetch } from "./live";
 import { activitiesQuery, homepageQuery, programsQuery } from "./queries";
 
-type Homepage = {
+export type Homepage = {
   title: string;
   description: string;
+  _updatedAt: Date;
 };
 
 type HomepageResponse = { data: Homepage };

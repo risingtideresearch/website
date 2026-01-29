@@ -1,7 +1,7 @@
 export default function LogoStacked() {
   return (
     <svg
-      viewBox="0 0 391.6 143.2"
+      viewBox="0 0 391.6 143"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

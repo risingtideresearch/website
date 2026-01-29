@@ -19,8 +19,8 @@ export default function TempLandingPage({ content }: { content: Homepage }) {
           // height={2028}
           alt="Drawing of Solander 38 solar-electric catamaran"
           priority
-          fill 
-          style={{ objectFit: 'cover'}}
+          fill
+          style={{ objectFit: "cover", aspectRatio: 2382 / 2028  }}
         />
       <div className={`${styles.title}`}>
         <div className={`${styles.logo}`}>

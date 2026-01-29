@@ -13,6 +13,7 @@ export default function TempLandingPage({ content }: { content: Homepage }) {
 
   return (
     <div className={styles.page}>
+      <div className={styles.imgContainer}>
         <Image
           src="/solander-drawing.png"
           // width={2382}
@@ -20,8 +21,10 @@ export default function TempLandingPage({ content }: { content: Homepage }) {
           alt="Drawing of Solander 38 solar-electric catamaran"
           priority
           fill
-          style={{ objectFit: "cover", aspectRatio: 2382 / 2028  }}
+          style={{ objectFit: "cover", objectPosition: "center 25%" }}
+          sizes="100vw"
         />
+      </div>
       <div className={`${styles.title}`}>
         <div className={`${styles.logo}`}>
           <LogoStacked />

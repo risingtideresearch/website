@@ -5,7 +5,7 @@ import "./globals.scss";
 export const metadata: Metadata = {
   title: "Rising Tide Research Foundation",
   description:
-    "Rising Tide Research Foundation is a not-for-profit society established to conduct open-source research advancing electric boat design and to raise public awareness and understanding of clean-marine technologies.",
+    "Rising Tide Research Foundation is a not-for-profit society established to conduct open-source research on electric boat design and to raise public awareness and understanding of clean-marine technologies.",
   icons: "https://rising-tide-research.netlify.app/rising-tide.svg",
   openGraph: {
     images: [

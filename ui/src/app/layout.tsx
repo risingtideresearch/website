@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `https://rising-tide-research.netlify.app/preview.png`,
-        width: 1600,
-        height: 840,
+        width: 1200,
+        height: 630,
         alt: `Rising Ride Research Foundation logo and drawing of Solander 38`,
       },
     ],

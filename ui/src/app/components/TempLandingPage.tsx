@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./temp-landing.module.scss";
 import { Homepage } from "@/sanity/lib/utils";
 import LogoStacked from "./LogoStacked";
@@ -13,18 +12,6 @@ export default function TempLandingPage({ content }: { content: Homepage }) {
 
   return (
     <div className={styles.page}>
-      <div className={styles.imgContainer}>
-        <Image
-          src="/solander-drawing.png"
-          // width={2382}
-          // height={2028}
-          alt="Drawing of Solander 38 solar-electric catamaran"
-          priority
-          fill
-          style={{ objectFit: "cover", objectPosition: "center 25%" }}
-          sizes="100vw"
-        />
-      </div>
       <div className={`${styles.title}`}>
         <div className={`${styles.logo}`}>
           <LogoStacked />

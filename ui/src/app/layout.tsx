@@ -26,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" as="image" href="/solander-drawing.png" />
+      </head>
       <body className={`${AcuminSansRegular.variable}`}>
         {children}
       </body>

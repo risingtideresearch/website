@@ -13,15 +13,16 @@ export default function TempLandingPage({ content }: { content: Homepage }) {
 
   return (
     <div className={styles.page}>
+        <Image
+          src="/solander-drawing.png"
+          // width={2382}
+          // height={2028}
+          alt="Drawing of Solander 38 solar-electric catamaran"
+          priority
+          fill 
+          style={{ objectFit: 'cover'}}
+        />
       <div className={`${styles.title}`}>
-        {/* <Image
-          src="/RTRF_Logo-01_Stacked_BLK.png"
-          width="3525"
-          height="1280"
-          alt="Rising Tide Research Foundation logo"
-          className={` ${styles.panel}`}
-          loading={"eager"}
-        /> */}
         <div className={`${styles.logo}`}>
           <LogoStacked />
         </div>

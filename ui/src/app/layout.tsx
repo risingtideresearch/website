@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   title: "Rising Tide Research Foundation",
   description:
     "Rising Tide Research Foundation is a not-for-profit society established to conduct open-source research advancing electric boat design and to raise public awareness and understanding of clean-marine technologies.",
-  icons: "https://solander38.netlify.app/rising-tide.svg",
-  // openGraph: {
-  //   images: [
-  //     {
-  //       url: `https://solander38.netlify.app/preview.solander-38.png`,
-  //       width: 1600,
-  //       height: 840,
-  //       alt: `Model of Solander 38`,
-  //     },
-  //   ],
-  // },
+  icons: "https://rising-tide-research.netlify.app/rising-tide.svg",
+  openGraph: {
+    images: [
+      {
+        url: `https://rising-tide-research.netlify.app/preview.png`,
+        width: 1600,
+        height: 840,
+        alt: `Rising Ride Research Foundation logo and drawing of Solander 38`,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

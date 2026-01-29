@@ -1,7 +1,20 @@
 :root {
-  --background: #ffffff;
+  --ocean-fog-blue: #b6cad3;
+  --background: var(--ocean-fog-blue);
   --foreground: #171717;
 }
+
+.font-acumin-light {
+  font-family: var(--font-acumin-sans-regular);
+}
+
+.font-acumin-regular {
+  font-family: var(--font-acumin-sans-regular);
+}
+.font-acumin-semibold {
+  font-family: var(--font-acumin-sans-semibold);
+}
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -28,6 +41,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  @extend .font-acumin-regular;
 }
 
 h1 {
@@ -59,6 +73,12 @@ h3 {
   line-height: 130%;
   text-wrap: balance;
   color: var(--text-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {

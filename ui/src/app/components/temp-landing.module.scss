@@ -1,0 +1,67 @@
+.page {
+  background-image: url("/solander-drawing.png");
+  background-size: cover;
+  background-position: center 30%;
+  height: 100vh;
+  width: 100vw;
+
+  p {
+    font-size: 1.25rem;
+    line-height: 140%;
+    text-wrap: balance;
+    @media (max-width: 600px) {
+        font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.75rem 6rem 1.75rem;
+    justify-content: center;
+  }
+}
+
+.panel {
+  background: #b6cad3b0;
+  backdrop-filter: blur(6px);
+  padding: 0.75rem;
+  border: 2px solid #000;
+
+  @media (max-width: 600px) {
+    border: 1.5px solid #000;
+  }
+}
+
+.title {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 100%;
+  max-width: 28rem;
+
+  @media (max-width: 600px) {
+    position: static;
+  }
+
+  img {
+    padding: 0;
+    border: none;
+  }
+
+  p {
+    @extend .panel;
+    margin: 1.5rem 0 0 0;
+  }
+}
+
+.updated {
+  @extend .panel;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  @media (max-width: 600px) {
+    position: static;
+  }
+}

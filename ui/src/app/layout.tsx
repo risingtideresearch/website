@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AcuminSansRegular } from './_fonts';
+import { AcuminSansRegular } from "./_fonts";
 import "./globals.scss";
 
 export const metadata: Metadata = {

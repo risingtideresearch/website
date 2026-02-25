@@ -1,5 +1,5 @@
 import {RiBookletLine} from 'react-icons/ri'
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const program = defineType({
   name: 'program',
@@ -37,6 +37,51 @@ export const program = defineType({
     }),
 
     defineField({
+      name: 'link',
+      type: 'array',
+      // validation: (Rule) => Rule.max(1),
+      of: [
+        defineArrayMember({
+          name: 'externalLink',
+          type: 'object',
+          title: 'External Link',
+          fields: [
+            defineField({
+              name: 'url',
+              type: 'url',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'title',
+              type: 'string',
+            }),
+          ],
+          // preview: {
+          //   select: { url: 'url' },
+          //   prepare: ({ url }) => ({ title: '🔗 External', subtitle: url }),
+          // },
+        }),
+        // defineArrayMember({
+        //   name: 'programLink',
+        //   type: 'object',
+        //   title: 'Program',
+        //   fields: [
+        //     defineField({
+        //       name: 'program',
+        //       type: 'reference',
+        //       to: [{ type: 'program' }],
+        //       validation: (Rule) => Rule.required(),
+        //     }),
+        //   ],
+        //   preview: {
+        //     select: { title: 'program.title' },
+        //     prepare: ({ title }) => ({ title: '📄 Program', subtitle: title }),
+        //   },
+        // }),
+      ],
+    }),
+
+    defineField({
       name: 'description',
       type: 'text',
       rows: 5,
@@ -52,6 +97,7 @@ export const program = defineType({
           styles: [
             {title: 'Normal', value: 'normal'},
             {title: 'Heading', value: 'h2'},
+            {title: 'Blockquote', value: 'blockquote'},
           ],
           lists: [
             {title: 'Bullet', value: 'bullet'},

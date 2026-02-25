@@ -21,13 +21,18 @@ export async function fetchHomepage(): Promise<HomepageResponse> {
   return { data };
 }
 
-export async function fetchLastUpdated(): Promise<LastUpdatedResponse> {
-  const data = await sanityFetch<T>({ query: lastUpdatedQuery() });
+type LastUpdated = {
+  date: string;
+}
 
-  return { data };
+export async function fetchLastUpdated(): Promise<string> {
+  const data = await sanityFetch<LastUpdated>({ query: lastUpdatedQuery() });
+
+  return data?.date;
 }
 
 type Program = {
+  _updatedAt: string;
   _id: string;
   name: string;
   description: string;

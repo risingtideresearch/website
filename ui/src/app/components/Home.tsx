@@ -10,7 +10,7 @@ export default function Home({
   lastUpdated,
 }: {
   content: Homepage;
-  lastUpdated: Date;
+  lastUpdated: string;
 }) {
   const time = new Date(lastUpdated);
   const options: Intl.DateTimeFormatOptions = {

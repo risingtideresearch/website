@@ -8,7 +8,7 @@ export default async function App() {
   const updated = await fetchLastUpdated();
   return (
     <div className={styles.page}>
-      <Home content={data} lastUpdated={updated.data} />
+      <Home content={data} lastUpdated={updated} />
     </div>
   );
 }

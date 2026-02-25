@@ -60,17 +60,19 @@ export default function Home({
             src="/solander-drawing-2.png"
             alt="Line drawing of Solander 38"
           />
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div>
-            <h3>Connect with us</h3>
-            <p>info@risingtideresearch.org</p>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          >
+            <div>
+              <h3>Connect with us</h3>
+              <p>info@risingtideresearch.org</p>
+            </div>
+            <div>
+              <h3>Keep up-to-date with our latest work</h3>
+              <p>Subscribe to our newsletter</p>
+            </div>
+            <h3>Updated {time.toLocaleDateString("en-CA", options)}</h3>
           </div>
-          <div>
-            <h3>Keep up-to-date with our latest work</h3>
-            <p>Subscribe to our newsletter</p>
-          </div>
-          <h3>Updated {time.toLocaleDateString("en-CA", options)}</h3>
         </div>
       </footer>
     </div>

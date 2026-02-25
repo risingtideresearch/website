@@ -1,4 +1,5 @@
 import { fetchActivities } from "@/sanity/lib/utils";
+import styles from  './activities.module.scss';
 
 export default async function ActivitiesList() {
   const { data } = await fetchActivities();
@@ -24,15 +25,9 @@ export default async function ActivitiesList() {
               ) : (
                 ""
               )} */}
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div className={styles.activities__title}>
                 <h4>{activity.name}</h4>
-                <div
-                  style={{
-                    borderTop: "1px solid var(--ocean-fog-blue)",
-                    flex: "1 1 auto",
-                    height: "auto",
-                    alignSelf: "center",
-                  }}
+                <div className={styles.activities__title__line}
                 ></div>
                 <p>{activity.description}</p>
               </div>

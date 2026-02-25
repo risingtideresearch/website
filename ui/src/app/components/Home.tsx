@@ -47,14 +47,7 @@ export default function Home({
           <Directory />
         </div>
       </main>
-      <footer
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          justifyContent: "space-between",
-        }}
-      >
+      <footer>
         <div>
           <Image
             style={{

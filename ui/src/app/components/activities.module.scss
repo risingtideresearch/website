@@ -1,0 +1,21 @@
+.activities {
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    &__line {
+      border-top: 1px solid var(--ocean-fog-blue);
+      flex: 1 1 auto;
+      height: auto;
+      align-self: center;
+
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+  }
+}

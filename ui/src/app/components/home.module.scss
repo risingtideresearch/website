@@ -18,8 +18,7 @@
 
 .page {
   main,
-  header,
-  footer > div {
+  header {
     display: grid;
     grid-template-columns: 18rem 1fr;
     gap: 1rem;
@@ -35,11 +34,6 @@
       display: flex;
       flex-direction: column;
     }
-  }
-
-  footer > div > div:nth-child(2) {
-    width: max-content;
-    margin-left: auto;
   }
   header {
     align-items: flex-end;
@@ -62,10 +56,20 @@
     .logo {
       order: 1;
       position: relative;
+      > div {
+        @media (max-width: 800px) {
+          display: flex;
+          flex-direction: column;
+
+          svg {
+            max-width: 100%;
+          }
+        }
+      }
     }
     header {
       order: 2;
-      padding-top: 3rem;
+      padding-top: 0;
       padding-bottom: 3rem;
       margin-bottom: 0;
     }
@@ -74,16 +78,8 @@
       margin-top: 0;
 
       section {
-        margin: 0;
+        margin: 0 0 8rem 0;
       }
     }
-    footer {
-      order: 4;
-
-      > div > div:nth-child(2) {
-        margin-left: 0;
-      }
-    }
-    
   }
 }

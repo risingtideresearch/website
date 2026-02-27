@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AcuminSansRegular } from "./_fonts";
 import "./globals.scss";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Rising Tide Research Foundation",
@@ -31,6 +32,7 @@ export default function RootLayout({
       </head>
       <body className={`${AcuminSansRegular.variable}`}>
         {children}
+        <Footer/ >
       </body>
     </html>
   );

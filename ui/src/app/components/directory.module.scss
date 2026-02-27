@@ -1,0 +1,21 @@
+.directory__group {
+    gap: 1rem;
+    margin: 1rem 0 3rem 0;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr 1.25fr;
+    }
+}
+
+.directory__group__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-left: 4rem;
+    margin-top: 1rem;
+    max-width: 36rem;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+}

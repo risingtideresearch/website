@@ -1,3 +1,4 @@
+import { PortableTextBlock } from "next-sanity";
 import { sanityFetch } from "./live";
 import {
   activitiesQuery,
@@ -6,6 +7,13 @@ import {
   lastUpdatedQuery,
   programsQuery,
 } from "./queries";
+import {
+  PortableTextMarkDefinition,
+  ArbitraryTypedObject,
+  PortableTextSpan,
+  PortableTextBlockStyle,
+  PortableTextListItemType,
+} from "@portabletext/types";
 
 export type Homepage = {
   title: string;
@@ -27,11 +35,23 @@ export async function fetchLastUpdated(): Promise<string> {
   return data;
 }
 
-type Program = {
+export type Program = {
   _updatedAt: string;
   _id: string;
   name: string;
   description: string;
+  slug: {
+    current?: string;
+  };
+  content?:
+    | PortableTextBlock<
+        PortableTextMarkDefinition,
+        ArbitraryTypedObject | PortableTextSpan,
+        PortableTextBlockStyle,
+        PortableTextListItemType
+      >[]
+    | undefined;
+  activities?: Array<Activity>,
 };
 
 type Programs = Array<Program>;
@@ -40,6 +60,12 @@ type ProgramsResponse = { data: Programs };
 
 export async function fetchPrograms(): Promise<ProgramsResponse> {
   const data = await sanityFetch<Programs>({ query: programsQuery() });
+
+  return { data };
+}
+
+export async function fetchProgram(slug?: string): Promise<ProgramsResponse> {
+  const data = await sanityFetch<Programs>({ query: programsQuery(slug) });
 
   return { data };
 }
@@ -63,7 +89,7 @@ export async function fetchActivities(): Promise<ActivitiesResponse> {
 
 type DirectoryResponse = {
   data: Directory;
-}
+};
 
 type Group = {
   _id: string;
@@ -78,7 +104,7 @@ type Person = {
   name: string;
   _id: string;
   role: string;
-}
+};
 
 export async function fetchDirectory(): Promise<DirectoryResponse> {
   const data = await sanityFetch<Directory>({ query: directoryQuery() });

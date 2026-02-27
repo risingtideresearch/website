@@ -1,5 +1,6 @@
 import { fetchActivities } from "@/sanity/lib/utils";
 import styles from  './activities.module.scss';
+import { formatDate } from "../util";
 
 export default async function ActivitiesList() {
   const { data } = await fetchActivities();
@@ -54,18 +55,10 @@ export default async function ActivitiesList() {
                           justifyContent: "space-between",
                         }}
                       >
-                        <p>{program.name}</p>
-                        {/* <div
-                          style={{
-                            borderTop: "1px solid var(--ocean-fog-blue",
-                            flex: "1 1 auto",
-                            height: "auto",
-                            alignSelf: "center",
-                          }}
-                        ></div> */}
-                        <p>
-                          {program._updatedAt.split('T')[0]}
-                        </p>
+                        <p><a href={`/${program.slug?.current}`}>{program.name}</a></p>
+                        <h3>
+                          {formatDate(program._updatedAt)}
+                        </h3>
                       </div>
                       <p></p>
                       <p>{program.description}</p>

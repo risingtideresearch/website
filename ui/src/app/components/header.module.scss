@@ -1,0 +1,27 @@
+.logo {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  svg {
+    display: block;
+    max-width: 18rem;
+    overflow: visible;
+  }
+
+  @media (max-width: 800px) {
+    position: relative;
+
+    &,
+    a {
+      width: 100%;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+  }
+}

@@ -30,10 +30,24 @@ export const lastUpdatedQuery = () => {
  *
  * @returns
  */
-export const programsQuery = () => {
+export const programsQuery = (slug?: string) => {
+  if (slug) {
+    return `
+    *[_type=="program"${slug ? ` && slug.current == "${slug}"` : ""}]{
+      ...,
+      "activities": *[_type=="activity" && references(^._id)]{
+        ...
+      }
+    }`;
+  }
+
   return `
   *[_type=="program"]{
-    ...
+    _id,
+    name,
+    description,
+    _lastUpdated,
+    slug,
   }`;
 };
 

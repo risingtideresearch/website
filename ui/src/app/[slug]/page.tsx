@@ -4,6 +4,25 @@ import styles from "./page.module.scss";
 import { formatDate } from "../util";
 import Header from "../components/Header";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { data } = await fetchProgram(slug);
+  const program = data[0];
+
+  return {
+    title: program?.name + ' • Rising Tide Research Foundation',
+    description: program?.description,
+    openGraph: {
+      type: 'article',
+      modifiedTime: program?._updatedAt,
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const { data } = await fetchPrograms();
 

@@ -51,6 +51,7 @@ export type Program = {
         PortableTextListItemType
       >[]
     | undefined;
+  link?: Array<{ url: string; title?: string }>;
   activities?: Array<Activity>,
 };
 

@@ -2,6 +2,24 @@
   padding-bottom: 2rem;
 }
 
+.link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-color: #171717;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+
+  &::after {
+    content: " ↗";
+  }
+
+  &:hover {
+    text-decoration-color: var(--ocean-fog-blue);
+  }
+}
+
 .body {
   p, li {
     margin-top: 1.5rem;

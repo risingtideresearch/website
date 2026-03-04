@@ -14,10 +14,10 @@ export async function generateMetadata({
   const program = data[0];
 
   return {
-    title: program?.name + ' • Rising Tide Research Foundation',
+    title: program?.name + " • Rising Tide Research Foundation",
     description: program?.description,
     openGraph: {
-      type: 'article',
+      type: "article",
       modifiedTime: program?._updatedAt,
     },
   };
@@ -52,7 +52,19 @@ export default async function Page({
       <main className={styles.body}>
         <div></div>
         <div>
-          <h3>Updated {formatDate(program._updatedAt)}</h3>{" "}
+          {program.link?.map((l: { url: string; title?: string }) => (
+            <a
+              key={l.url}
+              href={l.url}
+              className={styles.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {l.title || l.url}
+            </a>
+          ))}
+          <h3>Updated {formatDate(program._updatedAt)}</h3>
+
           {program.content && <PortableText value={program.content} />}
         </div>
       </main>

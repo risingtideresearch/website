@@ -42,7 +42,7 @@ export const programsQuery = (slug?: string) => {
   }
 
   return `
-  *[_type=="program"]{
+  *[_type=="program" && defined(content) && length(content) > 0]{
     _id,
     name,
     description,

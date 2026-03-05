@@ -55,9 +55,13 @@ export default async function ActivitiesList() {
                           justifyContent: "space-between",
                         }}
                       >
-                        <p><a href={`/${program.slug?.current}`}>{program.name}</a></p>
+                        <p>
+                          {program.content && program.content.length > 0
+                            ? <a href={`/${program.slug?.current}`}>{program.name}</a>
+                            : program.name}
+                        </p>
                         <h3>
-                          {formatDate(program._updatedAt)}
+                          {program.content ? formatDate(program._updatedAt) : <em>In progress</em>}
                         </h3>
                       </div>
                       <p></p>

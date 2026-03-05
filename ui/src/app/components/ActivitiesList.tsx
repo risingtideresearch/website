@@ -7,7 +7,7 @@ export default async function ActivitiesList() {
   return (
     <section>
       <h3>Our Activities</h3>
-      <ul>
+      <ul style={{ listStyle: 'none'}}>
         {data
           .sort((a, b) => b.name.localeCompare(a.name))
           .map((activity, i) => (

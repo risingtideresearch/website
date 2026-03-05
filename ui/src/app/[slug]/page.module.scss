@@ -28,7 +28,11 @@
     line-height: 150%;
   }
 
-  ol {
-    margin-left: 2rem;
+  ol, ul {
+    margin-left: 3rem;
+
+    li {
+        margin: 1em 0;
+    }
   }
 }

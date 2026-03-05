@@ -5,6 +5,7 @@
   max-width: 70rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+  height: 0;
 
   svg {
     display: block;
@@ -14,6 +15,7 @@
 
   @media (max-width: 800px) {
     position: relative;
+    height: auto;
 
     &,
     a {

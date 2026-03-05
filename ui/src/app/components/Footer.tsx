@@ -16,7 +16,7 @@ export default async function Footer() {
           src="/solander-drawing-2.png"
           alt="Line drawing of Solander 38"
         />
-        <div className={styles.info}>
+        <div className={`${styles.info} footer-info`}>
           <div>
             <h3>Connect with us</h3>
             <p>info@risingtideresearch.org</p>

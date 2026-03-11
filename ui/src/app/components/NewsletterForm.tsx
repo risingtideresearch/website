@@ -5,7 +5,9 @@ import styles from "./newsletter.module.scss";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
 
   async function submit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,21 +28,29 @@ export default function NewsletterForm() {
   if (state === "success") return <p>Thanks for subscribing!</p>;
 
   return (
-    <form className={styles.form} onSubmit={submit} autoComplete="on">
-      <input
-        className={styles.input}
-        type="email"
-        name="email"
-        autoComplete="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@email.com"
-        required
-      />
-      <button className={styles.button} type="submit" disabled={state === "loading"}>
-        {state === "loading" ? "Subscribing…" : "Subscribe"}
-      </button>
-      {state === "error" && <p className={styles.error}>Something went wrong — please try again.</p>}
-    </form>
+    <>
+      <form className={styles.form} onSubmit={submit} autoComplete="on">
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@email.com"
+          required
+        />
+        <button
+          className={styles.button}
+          type="submit"
+          disabled={state === "loading"}
+        >
+          {state === "loading" ? "Subscribing…" : "Subscribe"}
+        </button>
+      </form>
+      {state === "error" && (
+        <p className={styles.error}>Something went wrong — please try again.</p>
+      )}
+    </>
   );
 }

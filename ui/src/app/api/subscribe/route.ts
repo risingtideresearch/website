@@ -1,10 +1,10 @@
 export async function POST(req: Request) {
   const { email } = await req.json();
 
-  const res = await fetch("https://api.buttondown.email/v1/subscribers", {
+  const res = await fetch("https://api.buttondown.email/v2026-04-01/subscribers", {
     method: "POST",
     headers: {
-      Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`,
+      Authorization: `Bearer ${process.env.BUTTONDOWN_API_KEY}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email }),

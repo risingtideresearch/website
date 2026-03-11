@@ -11,6 +11,9 @@ export async function POST(req: Request) {
   });
 
   if (res.status === 422) return Response.json({ error: "already_subscribed" }, { status: 422 });
-  if (!res.ok) return Response.json({ error: "Failed to subscribe" }, { status: res.status });
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    return Response.json({ error: "Failed to subscribe", status: res.status, detail: body }, { status: res.status });
+  }
   return Response.json({ success: true });
 }

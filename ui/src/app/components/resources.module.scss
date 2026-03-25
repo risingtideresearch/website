@@ -1,0 +1,32 @@
+.group {
+  margin-top: 1.5rem;
+  ul {
+    margin-left: 4rem;
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.75rem 0;
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: #171717;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+
+    &::after {
+      content: " ↗";
+    }
+
+    &:hover {
+      text-decoration-color: var(--ocean-fog-blue);
+    }
+  }
+}

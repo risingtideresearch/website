@@ -72,6 +72,17 @@ export const activitiesQuery = () => {
  *
  * @returns
  */
+export const resourcesQuery = () => {
+  return `
+  *[_type == "resource" && showOnHomepage == true] | order(name asc) {
+    _id,
+    name,
+    url,
+    description,
+    "type": type->name,
+  }`;
+};
+
 export const directoryQuery = () => {
   return `
   *[_type == "personGroup"] {

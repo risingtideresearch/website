@@ -27,6 +27,18 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
           })
           .title('Programs'),
       ])
+    case `resourceType`:
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(DocumentsPane)
+          .options({
+            query: `*[_type == "resource" && references($id)]`,
+            params: {id: `_id`},
+            options: {perspective: 'drafts'},
+          })
+          .title('Resources'),
+      ])
     default:
       return S.document().views([S.view.form()])
   }

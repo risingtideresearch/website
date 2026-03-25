@@ -6,6 +6,7 @@ import {
   homepageQuery,
   lastUpdatedQuery,
   programsQuery,
+  resourcesQuery,
 } from "./queries";
 import {
   PortableTextMarkDefinition,
@@ -109,6 +110,22 @@ type Person = {
 
 export async function fetchDirectory(): Promise<DirectoryResponse> {
   const data = await sanityFetch<Directory>({ query: directoryQuery() });
+
+  return { data };
+}
+
+export type Resource = {
+  _id: string;
+  name: string;
+  url: string;
+  description?: string;
+  type?: string;
+};
+
+type ResourcesResponse = { data: Array<Resource> };
+
+export async function fetchResources(): Promise<ResourcesResponse> {
+  const data = await sanityFetch<Array<Resource>>({ query: resourcesQuery() });
 
   return { data };
 }

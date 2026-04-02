@@ -10,14 +10,14 @@
 
 .inner {
   display: grid;
-  grid-template-columns: 18rem 1fr;
+  grid-template-columns: 19rem 1fr;
   max-width: 70rem;
   gap: 2rem;
   margin: 0 auto;
   padding: 0 1rem;
 
   img {
-    max-width: 18rem;
+    max-width: 19rem;
     margin: 0 auto;
   }
   @media (max-width: 800px) {

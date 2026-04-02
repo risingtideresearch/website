@@ -2,6 +2,8 @@ import { client } from "./client";
 import { token } from "./token";
 import type { QueryParams } from "next-sanity";
 
+const isDev = process.env.NODE_ENV === "development";
+
 /**
  * Fetch function for Sanity queries
  * For live preview, use the client with token
@@ -9,7 +11,7 @@ import type { QueryParams } from "next-sanity";
 export async function sanityFetch<T = unknown>({
   query,
   params = {},
-  revalidate = 60, // Cache revalidation in seconds
+  revalidate = isDev ? 0 : 60,
 }: {
   query: string;
   params?: QueryParams;

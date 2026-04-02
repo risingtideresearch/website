@@ -7,11 +7,13 @@ import { personGroup } from "./personGroup";
 import { activity } from "./activity";
 import { resource } from "./resource";
 import { resourceType } from "./resourceType";
+import { update } from "./update";
 
 export const schemaTypes = [
     home,
     activity,
     program,
+    update,
     resource,
     resourceType,
     person,

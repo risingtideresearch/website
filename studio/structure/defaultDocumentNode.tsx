@@ -14,6 +14,14 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
             options: {perspective: 'drafts'},
           })
           .title('Part of'),
+        S.view
+          .component(DocumentsPane)
+          .options({
+            query: `*[_type == "update" && references($id)] | order(date desc)`,
+            params: {id: `_id`},
+            options: {perspective: 'drafts'},
+          })
+          .title('Updates'),
       ])
     case `person`:
       return S.document().views([

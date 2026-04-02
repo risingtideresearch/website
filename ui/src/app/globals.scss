@@ -71,6 +71,13 @@ h4 {
   font-weight: 600;
 }
 
+figcaption {
+  font-size: 0.8125rem;
+  text-align: center;
+  color: #474747;
+  margin: 0.5rem 0;
+}
+
 p, li {
   font-size: 0.875rem;
   text-wrap: pretty;
@@ -120,7 +127,7 @@ main {
 main,
 header {
   display: grid;
-  grid-template-columns: 18rem 1fr;
+  grid-template-columns: 19rem 1fr;
   gap: 2rem;
   max-width: 70rem;
   padding: 0 1.5rem;

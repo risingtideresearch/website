@@ -1,8 +1,21 @@
-import { fetchPrograms, fetchProgram, Program } from "@/sanity/lib/utils";
+import {
+  fetchPrograms,
+  fetchProgram,
+  fetchUpdates,
+  Program,
+} from "@/sanity/lib/utils";
 import { PortableText } from "next-sanity";
 import styles from "./page.module.scss";
 import { formatDate } from "../util";
 import Header from "../components/Header";
+import UpdatesList from "../components/UpdatesList";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { client } from "@/sanity/lib/client";
+import { portableTextComponents } from "../components/portableTextComponents";
+
+const builder = createImageUrlBuilder(client);
 
 export async function generateMetadata({
   params,
@@ -39,33 +52,61 @@ export default async function Page({
   const { slug } = await params;
   const { data } = await fetchProgram(slug);
 
-  const program = data[0] || {};
+  const program = data[0];
+
+  if (!program) {
+    notFound();
+  }
+
+  const { data: updates } = await fetchUpdates(program._id);
 
   return (
     <div>
       <Header>
         <div className={styles.header}>
-          <h3>{program.activities?.[0].name}</h3>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <h3>{program.activities?.[0].name}</h3>
+
+            <h3>Updated {formatDate(program._updatedAt)}</h3>
+          </div>
           <h1>{program.name}</h1>
         </div>
       </Header>
       <main className={styles.body}>
         <div></div>
         <div>
+          {program.image?.asset && (
+            <Image
+              src={builder.image(program.image).url()}
+              alt={program.name}
+              width={program.image.asset.metadata?.dimensions?.width || 800}
+              height={program.image.asset.metadata?.dimensions?.height || 600}
+              className={styles.image}
+            />
+          )}
           {program.link?.map((l: { url: string; title?: string }) => (
-            <a
-              key={l.url}
-              href={l.url}
-              className={styles.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {l.title || l.url}
-            </a>
+            <>
+              <h3>Link</h3>
+              <a
+                key={l.url}
+                href={l.url}
+                className={styles.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {l.title || l.url}
+              </a>
+            </>
           ))}
-          <h3>Updated {formatDate(program._updatedAt)}</h3>
 
-          {program.content && <PortableText value={program.content} />}
+          {updates.length > 0 && <UpdatesList updates={updates} />}
+
+          {program.content && (
+            <>
+              <h3>Overview</h3>
+              <PortableText value={program.content} components={portableTextComponents} />
+            </>
+          )}
         </div>
       </main>
     </div>

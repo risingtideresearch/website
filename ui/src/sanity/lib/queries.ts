@@ -35,6 +35,17 @@ export const programsQuery = (slug?: string) => {
     return `
     *[_type=="program"${slug ? ` && slug.current == "${slug}"` : ""}]{
       ...,
+      image {
+        ...,
+        crop,
+        hotspot,
+        asset -> {
+          ...,
+          metadata {
+            ...
+          }
+        }
+      },
       "activities": *[_type=="activity" && references(^._id)]{
         ...
       }
@@ -48,6 +59,9 @@ export const programsQuery = (slug?: string) => {
     description,
     _lastUpdated,
     slug,
+    "image": image.asset->{
+      ...
+    },
   }`;
 };
 
@@ -80,6 +94,17 @@ export const resourcesQuery = () => {
     url,
     description,
     "type": type->name,
+  }`;
+};
+
+export const updatesQuery = (programId: string) => {
+  return `
+  *[_type == "update" && program._ref == "${programId}"] | order(date desc) {
+    _id,
+    title,
+    content,
+    date,
+    link,
   }`;
 };
 

@@ -7,6 +7,7 @@ import {
   lastUpdatedQuery,
   programsQuery,
   resourcesQuery,
+  updatesQuery,
 } from "./queries";
 import {
   PortableTextMarkDefinition,
@@ -52,6 +53,17 @@ export type Program = {
         PortableTextListItemType
       >[]
     | undefined;
+  image?: {
+    crop?: { top: number; bottom: number; left: number; right: number };
+    hotspot?: { x: number; y: number; width: number; height: number };
+    asset?: {
+      _ref?: string;
+      url?: string;
+      metadata?: {
+        dimensions?: { width: number; height: number };
+      };
+    };
+  };
   link?: Array<{ url: string; title?: string }>;
   activities?: Array<Activity>,
 };
@@ -126,6 +138,22 @@ type ResourcesResponse = { data: Array<Resource> };
 
 export async function fetchResources(): Promise<ResourcesResponse> {
   const data = await sanityFetch<Array<Resource>>({ query: resourcesQuery() });
+
+  return { data };
+}
+
+export type Update = {
+  _id: string;
+  title: string;
+  date: string;
+  content?: Program["content"];
+  link?: Array<{ url: string; title?: string }>;
+};
+
+type UpdatesResponse = { data: Array<Update> };
+
+export async function fetchUpdates(programId: string): Promise<UpdatesResponse> {
+  const data = await sanityFetch<Array<Update>>({ query: updatesQuery(programId) });
 
   return { data };
 }

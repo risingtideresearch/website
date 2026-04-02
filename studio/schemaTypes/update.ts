@@ -1,29 +1,30 @@
-import {RiBookletLine} from 'react-icons/ri'
+import {RiArticleLine} from 'react-icons/ri'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-export const program = defineType({
-  name: 'program',
+export const update = defineType({
+  name: 'update',
   type: 'document',
-  icon: RiBookletLine,
+  icon: RiArticleLine,
   fields: [
     defineField({
-      name: 'name',
+      name: 'title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 200,
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-      },
+      name: 'program',
+      type: 'reference',
+      to: [{type: 'program'}],
+      validation: (Rule) => Rule.required(),
     }),
-
+     defineField({
+      name: 'date',
+      type: 'date',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'link',
       type: 'array',
-      // validation: (Rule) => Rule.max(1),
       of: [
         defineArrayMember({
           name: 'externalLink',
@@ -40,48 +41,11 @@ export const program = defineType({
               type: 'string',
             }),
           ],
-          // preview: {
-          //   select: { url: 'url' },
-          //   prepare: ({ url }) => ({ title: '🔗 External', subtitle: url }),
-          // },
         }),
-        // defineArrayMember({
-        //   name: 'programLink',
-        //   type: 'object',
-        //   title: 'Program',
-        //   fields: [
-        //     defineField({
-        //       name: 'program',
-        //       type: 'reference',
-        //       to: [{ type: 'program' }],
-        //       validation: (Rule) => Rule.required(),
-        //     }),
-        //   ],
-        //   preview: {
-        //     select: { title: 'program.title' },
-        //     prepare: ({ title }) => ({ title: '📄 Program', subtitle: title }),
-        //   },
-        // }),
       ],
     }),
-
-    defineField({
-      name: 'image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-
-    defineField({
-      name: 'description',
-      type: 'text',
-      rows: 5,
-    }),
-
     defineField({
       name: 'content',
-      title: 'Overview',
       type: 'array',
       of: [
         {
@@ -155,20 +119,17 @@ export const program = defineType({
         },
       ],
     }),
-    defineField({
-      name: 'team',
-      type: 'array',
-      of: [
-        defineField({
-          name: 'person',
-          type: 'reference',
-          to: [
-            {
-              type: 'person',
-            },
-          ],
-        }),
-      ],
-    }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      program: 'program.name',
+    },
+    prepare({title, program}) {
+      return {
+        title,
+        subtitle: program,
+      }
+    },
+  },
 })

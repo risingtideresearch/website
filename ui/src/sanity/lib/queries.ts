@@ -72,12 +72,18 @@ export const programsQuery = (slug?: string) => {
 export const activitiesQuery = () => {
   return `
   *[_type=="activity"]{
-    description,
-    name,
     _id,
-    _updatedAt,
+    name,
+    description,
     programs[]-> {
-      ...
+      _id,
+      _updatedAt,
+      name,
+      description,
+      slug,
+      link,
+      "iconUrl": icon.asset->url,
+      "hasContent": length(coalesce(content, [])) > 0
     }
   }`;
 };

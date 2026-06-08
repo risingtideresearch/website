@@ -1,5 +1,5 @@
 import {RiBookletLine} from 'react-icons/ri'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const program = defineType({
   name: 'program',
@@ -22,46 +22,16 @@ export const program = defineType({
 
     defineField({
       name: 'link',
-      type: 'array',
-      // validation: (Rule) => Rule.max(1),
-      of: [
-        defineArrayMember({
-          name: 'externalLink',
-          type: 'object',
-          title: 'External Link',
-          fields: [
-            defineField({
-              name: 'url',
-              type: 'url',
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'title',
-              type: 'string',
-            }),
-          ],
-          // preview: {
-          //   select: { url: 'url' },
-          //   prepare: ({ url }) => ({ title: '🔗 External', subtitle: url }),
-          // },
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'url',
+          type: 'url',
         }),
-        // defineArrayMember({
-        //   name: 'programLink',
-        //   type: 'object',
-        //   title: 'Program',
-        //   fields: [
-        //     defineField({
-        //       name: 'program',
-        //       type: 'reference',
-        //       to: [{ type: 'program' }],
-        //       validation: (Rule) => Rule.required(),
-        //     }),
-        //   ],
-        //   preview: {
-        //     select: { title: 'program.title' },
-        //     prepare: ({ title }) => ({ title: '📄 Program', subtitle: title }),
-        //   },
-        // }),
+        defineField({
+          name: 'title',
+          type: 'string',
+        }),
       ],
     }),
 
@@ -70,6 +40,15 @@ export const program = defineType({
       type: 'image',
       options: {
         hotspot: true,
+      },
+    }),
+
+    defineField({
+      name: 'icon',
+      title: 'Icon (SVG)',
+      type: 'image',
+      options: {
+        accept: 'image/svg+xml',
       },
     }),
 

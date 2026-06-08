@@ -64,8 +64,10 @@ export type Program = {
       };
     };
   };
-  link?: Array<{ url: string; title?: string }>;
-  activities?: Array<Activity>,
+  link?: { url: string; title?: string };
+  activities?: Array<Activity>;
+  iconUrl?: string;
+  hasContent?: boolean;
 };
 
 type Programs = Array<Program>;

@@ -7,14 +7,12 @@ const isDev = process.env.NODE_ENV === "development";
 export async function sanityFetch<T = unknown>({
   query,
   params = {},
-  tags = ["sanity"],
 }: {
   query: string;
   params?: QueryParams;
-  tags?: string[];
 }): Promise<T> {
   return client.fetch<T>(query, params, {
-    next: isDev ? { revalidate: 0 } : { tags },
+    next: isDev ? { revalidate: 0 } : { revalidate: false },
     token: token,
   });
 }

@@ -7,7 +7,7 @@ import {
 import { PortableText } from "next-sanity";
 import styles from "./page.module.scss";
 import { formatDate } from "../util";
-import Link from "next/link";
+// import Link from "next/link";
 import Header from "../components/Header";
 import UpdatesList from "../components/UpdatesList";
 import { notFound } from "next/navigation";
@@ -117,7 +117,7 @@ export default async function Page({
             </section>
           )}
           <section className={styles.footer}>
-            <Link href="/" className={styles["programs-link"]}>← Programs</Link>
+            {/* <Link href="/" className={styles["programs-link"]}>← Programs</Link> */}
             <h6>Updated <time dateTime={program._updatedAt}>{formatDate(program._updatedAt)}</time></h6>
           </section>
         </div>

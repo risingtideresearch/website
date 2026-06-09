@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
 
-  revalidateTag("sanity");
+  revalidatePath("/", "layout");
 
   return NextResponse.json({ revalidated: true });
 }

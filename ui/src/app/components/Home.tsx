@@ -8,14 +8,13 @@ export default function Home({ content }: { content: Homepage }) {
   return (
     <div className={styles.page}>
       <Header>
-        <h2>{content.description}</h2>
+        <h1>{content.description}</h1>
       </Header>
       <main>
-        <div></div>
         <div>
           <ActivitiesList />
           <Directory />
-          <ResourcesList />
+          {/* <ResourcesList /> */}
         </div>
       </main>
     </div>

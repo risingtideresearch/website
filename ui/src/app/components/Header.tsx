@@ -4,16 +4,11 @@ import styles from "./header.module.scss";
 
 export default function Header({ children }: { children?: React.ReactNode }) {
   return (
-    <>
-      <div className={styles.logo}>
-        <Link href="/">
-          <LogoStacked />
-        </Link>
-      </div>
-      <header>
-        <span />
-        {children}
-      </header>
-    </>
+    <header>
+      <Link href="/" className={styles.logo}>
+        <LogoStacked />
+      </Link>
+      {children}
+    </header>
   );
 }

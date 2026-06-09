@@ -35,6 +35,8 @@ export const programsQuery = (slug?: string) => {
     return `
     *[_type=="program"${slug ? ` && slug.current == "${slug}"` : ""}]{
       ...,
+      "iconUrl": icon.asset->url,
+      "iconAlt": icon.asset->altText,
       image {
         ...,
         crop,
@@ -59,6 +61,9 @@ export const programsQuery = (slug?: string) => {
     description,
     _lastUpdated,
     slug,
+    "iconUrl": icon.asset->url,
+    "iconAlt": icon.asset->altText,
+    "activity": *[_type=="activity" && references(^._id)][0].name,
     "image": image.asset->{
       ...
     },
@@ -83,7 +88,8 @@ export const activitiesQuery = () => {
       slug,
       link,
       "iconUrl": icon.asset->url,
-      "hasContent": length(coalesce(content, [])) > 0
+      "iconAlt": icon.asset->altText,
+      "hasContent": count(content[_type != "block" || count(children[text != ""]) > 0]) > 0
     }
   }`;
 };

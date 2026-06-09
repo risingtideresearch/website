@@ -6,8 +6,8 @@ export default async function ActivitiesList() {
 
   return (
     <section>
-      <h3>Our Directory</h3>
-      <div>
+      <h6>Our Directory</h6>
+      <div className={styles.directory}>
         {data
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((group) => (
@@ -15,16 +15,17 @@ export default async function ActivitiesList() {
               key={group._id}
               className={styles.directory__group}
             >
-              <h4>{group.name}</h4>
+              <h3>{group.name}</h3>
               <div
                 className={styles.directory__group__list}
+                style={group.people.length < 4 ? {gridTemplateColumns: '1fr'} : {}}
               >
                 {group.people
                   .sort((a, b) => a.role.includes('Director') || a.role.includes('Manager') ? -1 : a.name.localeCompare(b.name))
                   .map((person) => (
                     <div key={person._id}>
                       <p>{person.name}</p>
-                      <h3>{person.role}</h3>
+                      <h6>{person.role}</h6>
                     </div>
                   ))}
               </div>

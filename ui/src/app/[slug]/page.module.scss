@@ -1,15 +1,30 @@
+.header,
+.body {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 2rem;
+}
+
 .header {
-  padding-bottom: 2rem;
+  margin: 3rem 0 0 0;
+  h1 {
+    margin: 0;
+  }
 
   @media (max-width: 800px) {
+    gap: 8vw;
     align-self: flex-start;
+    grid-template-columns: 32vw 1fr;
+
+    img {
+      width: 32vw;
+    }
   }
 }
 
 .link {
   display: inline-block;
   margin-bottom: 3.5rem;
-  font-size: 1rem;
   text-decoration: underline;
   text-decoration-color: #171717;
   text-underline-offset: 3px;
@@ -27,22 +42,47 @@
 .image {
   width: 100%;
   height: auto;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.programs-link {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--ocean-fog-blue);
+  }
 }
 
 .body {
+  section {
+    border-top: 1px solid;
+    padding-top: 1rem;
+    margin-top: 0;
+  }
   h4 {
     margin: 0 0 -0.5rem 0;
   }
   h3 {
-    margin: -1.75rem 0 0.75rem 0;
+    margin: 0 0 0.75rem 0;
   }
   p,
   li {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 150%;
+    line-height: 160%;
   }
 
   ol,
@@ -52,5 +92,10 @@
     li {
       margin: 1em 0;
     }
+  }
+
+  @media (max-width: 800px) {
+    display: block;
+    margin-top: 2rem;
   }
 }

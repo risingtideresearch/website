@@ -1,20 +1,14 @@
 .logo {
-  position: sticky;
-  top: 1rem;
-  z-index: 10;
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  height: 0;
-
+  display: block;
+  width: 100%;
+  max-width: 24.625rem;
   svg {
     display: block;
-    max-width: 19rem;
     overflow: visible;
   }
 
   &:hover svg {
-    background: rgba(182, 202, 211, 0.25);
+    background: var(--ocean-fog-blue);
   }
 
   @media (max-width: 800px) {

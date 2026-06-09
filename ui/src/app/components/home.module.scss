@@ -4,17 +4,12 @@
     flex-direction: column;
     gap: 2rem;
 
-    header {
-      padding-top: 0;
-      padding-bottom: 3rem;
+    h1 {
+      margin-bottom: 1rem;
     }
 
     main {
       margin-top: 0;
-
-      section {
-        margin: 0 0 6rem 0;
-      }
     }
   }
 }

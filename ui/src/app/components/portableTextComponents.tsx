@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { projectId, dataset } from "@/sanity/lib/api";
@@ -22,6 +23,20 @@ type PortableTextImage = { asset: { _ref: string }; alt?: string; caption?: stri
 type VideoEmbed = { url: string; caption?: string };
 
 export const portableTextComponents = {
+  marks: {
+    link: ({ value, children }: { value?: { href?: string }; children: React.ReactNode }) => {
+      const href = value?.href ?? "";
+      const isExternal = href.startsWith("http://") || href.startsWith("https://");
+      return (
+        <a
+          href={href}
+          {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
   types: {
     image: ({ value }: { value: PortableTextImage }) => (
       <figure style={{ margin: 0 }}>

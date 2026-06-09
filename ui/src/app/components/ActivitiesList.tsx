@@ -1,44 +1,85 @@
-import { fetchActivities } from "@/sanity/lib/utils";
-import styles from './activities.module.scss';
+import { fetchActivities, Program } from "@/sanity/lib/utils";
+import styles from "./activities.module.scss";
 import { formatDate } from "../util";
+import Image from "next/image";
+import { ExternalLinkIcon, InternalLinkIcon } from "./LinkIcon";
+import { ReactNode } from "react";
 
 export default async function ActivitiesList() {
   const { data } = await fetchActivities();
+
+  const linkIcon = (program: Program) =>
+    program.link?.url ? (
+      <ExternalLinkIcon />
+    ) : program.hasContent ? (
+      <InternalLinkIcon />
+    ) : null;
+
+  const link = (program: Program, children: ReactNode) =>
+    program.link?.url ? (
+      <a href={program.link.url} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    ) : program.hasContent ? (
+      <a href={`/${program.slug?.current}`}>{children}</a>
+    ) : (
+      <>{children}</>
+    );
+
   return (
     <section>
-      <h3>Our Activities</h3>
       <ul className={styles.list}>
         {data
           .sort((a, b) => b.name.localeCompare(a.name))
-          .map((activity, i) => (
+          .map((activity) => (
             <li className={styles.activity} key={activity._id}>
               <div className={styles.activities__title}>
-                <h4>{activity.name}</h4>
-                <div className={styles.activities__title__line}></div>
-                <p>{activity.description}</p>
+                <h2>{activity.name}</h2>
+                <h6>{activity.description}</h6>
               </div>
-              <ol key={activity._id}>
+              <ol>
                 {activity.programs
                   .sort((a, b) => a.name.localeCompare(b.name))
-                  .map((program, j) => (
+                  .map((program) => (
                     <li key={program._id} className={styles.program}>
-                      <p>
-                        {i + 1}&ndash;{String.fromCharCode(j + 65)}
-                      </p>
-                      <div className={styles.program__header}>
-                        <p>
-                          {program.content && program.content.length > 0
-                            ? <a href={`/${program.slug?.current}`}>{program.name}</a>
-                            : program.name}
-                        </p>
-                        <h3>
-                          {program.content
-                            ? formatDate(program._updatedAt)
-                            : <em className={styles.in_progress}>In progress</em>}
-                        </h3>
+                      <div className={styles.program__icon}>
+                        {program.iconUrl && (
+                          <Image
+                            src={program.iconUrl}
+                            alt={program.iconAlt ?? ""}
+                            aria-hidden={!program.iconAlt}
+                            width={144}
+                            height={144}
+                            unoptimized
+                          />
+                        )}
                       </div>
-                      <p></p>
-                      <p>{program.description}</p>
+                      <div className={styles.program__header}>
+                        <h3>
+                          {link(
+                            program,
+                            <>
+                              <span>{program.name}</span>
+                              <span className={styles["icon--mobile"]}>
+                                {linkIcon(program)}
+                              </span>
+                            </>,
+                          )}
+                        </h3>
+                        <h6>
+                          {program.hasContent ? (
+                            <time dateTime={program._updatedAt}>
+                              {formatDate(program._updatedAt)}
+                            </time>
+                          ) : (
+                            <span>In progress</span>
+                          )}
+                        </h6>
+                      </div>
+                      <div className={styles.program__description}>
+                        <p>{program.description}</p>
+                        {link(program, linkIcon(program))}
+                      </div>
                     </li>
                   ))}
               </ol>

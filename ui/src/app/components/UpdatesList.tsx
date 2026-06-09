@@ -13,14 +13,13 @@ export default function UpdatesList({ updates }: { updates: Update[] }) {
   const visible = expanded ? updates : updates.slice(0, 3);
 
   return (
-    <section className={styles.updates}>
+    <div className={styles.updates}>
       <h3>Latest</h3>
       {visible.map((update) => (
         <div key={update._id} className={styles.update}>
-          <span className={styles.circle}></span>
+          <h6 className={styles.date}><time dateTime={update.date}>{formatDate(update.date)}</time></h6>
           <div>
-            <p>{update.title}</p>
-            <span className={styles.date}>{formatDate(update.date)}</span>
+            <h4>{update.title}</h4>
             {update.link?.map((l) => (
               <a
                 key={l.url}
@@ -32,15 +31,23 @@ export default function UpdatesList({ updates }: { updates: Update[] }) {
                 {l.title || l.url}
               </a>
             ))}
-            {update.content && <PortableText value={update.content} components={portableTextComponents} />}
+            {update.content && (
+              <PortableText
+                value={update.content}
+                components={portableTextComponents}
+              />
+            )}
           </div>
         </div>
       ))}
       {updates.length > 3 && !expanded && (
-        <button className={styles.viewAll} onClick={() => setExpanded(true)}>
+        <button
+          className={styles["view-all"]}
+          onClick={() => setExpanded(true)}
+        >
           View all ({updates.length})
         </button>
       )}
-    </section>
+    </div>
   );
 }

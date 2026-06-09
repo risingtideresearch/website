@@ -15,11 +15,11 @@ export default async function Footer() {
         />
         <div className={`${styles.info} footer-info`}>
           <div>
-            <h3>Connect with us</h3>
+            <h6>Connect with us</h6>
             <p>info@risingtideresearch.org</p>
           </div>
           <div>
-            <h3>Keep up-to-date with our latest work</h3>
+            <h6>Keep up-to-date with our latest work</h6>
             <NewsletterForm />
           </div>
         </div>

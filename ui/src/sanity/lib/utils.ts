@@ -67,6 +67,8 @@ export type Program = {
   link?: { url: string; title?: string };
   activities?: Array<Activity>;
   iconUrl?: string;
+  iconAlt?: string;
+  activity?: string;
   hasContent?: boolean;
 };
 

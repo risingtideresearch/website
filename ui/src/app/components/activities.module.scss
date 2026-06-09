@@ -5,43 +5,111 @@
 .activity {
   position: relative;
   margin: 1rem 0 3rem 0;
+  border-top: 1px solid;
+
+  &:last-child {
+    border-bottom: 1px solid;
+  }
 }
 
 .program {
+  margin: 3rem 0;
   display: grid;
-  grid-template-columns: 2rem 1fr;
-  row-gap: 1rem;
+  grid-template-columns: 9rem 1fr;
   column-gap: 2rem;
-  margin: 1rem 0;
+  row-gap: 1.25rem;
+  list-style: none;
+
+  @media (max-width: 800px) {
+    column-gap: 1.25rem;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  h6 {
+    text-align: right;
+
+    @media (max-width: 800px) {
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+  }
+}
+
+.program__icon {
+  margin-top: 0.375rem;
+  grid-row: span 2;
+  @media (max-width: 800px) {
+    grid-row: span 1;
+  }
 }
 
 .program__header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 6rem;
+  align-content: start;
+  align-items: flex-end;
+
+  @media (max-width: 800px) {
+    display: block;
+
+    a {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
 }
 
-.in_progress {
-  color: #bbb;
+.program__description {
+  grid-column: 2;
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 4.5rem;
+  align-items: flex-start;
+
+  a {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    transition: color 0.15s ease;
+    width: min-content;
+
+    &:hover {
+      color: var(--ocean-fog-blue);
+    }
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    grid-column: 1 / -1;
+    display: block;
+  }
+}
+
+.icon--mobile {
+  display: none;
+
+  @media (max-width: 800px) {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.4ch;
+    vertical-align: middle;
+
+    svg {
+      margin-top: 0.25em;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }
 
 .activities {
   &__title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @media (max-width: 800px) {
-      flex-direction: column;
-    }
-
-    &__line {
-      border-top: 1px solid var(--ocean-fog-blue);
-      flex: 1 1 auto;
-      height: auto;
-      align-self: center;
-
-      @media (max-width: 800px) {
-        display: none;
-      }
-    }
+    margin: 2rem 0;
   }
 }

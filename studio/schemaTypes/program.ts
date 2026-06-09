@@ -5,6 +5,12 @@ export const program = defineType({
   name: 'program',
   type: 'document',
   icon: RiBookletLine,
+  preview: {
+    select: {
+      title: 'name',
+      media: 'icon',
+    },
+  },
   fields: [
     defineField({
       name: 'name',
@@ -23,6 +29,7 @@ export const program = defineType({
     defineField({
       name: 'link',
       type: 'object',
+      description: 'Link to external project site. If present, will supersede internal program page.',
       fields: [
         defineField({
           name: 'url',

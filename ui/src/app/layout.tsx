@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AcuminSansRegular } from "./_fonts";
+import { AcuminSansLight, AcuminSansRegular } from "./_fonts";
 import "./globals.scss";
 import Footer from "./components/Footer";
 import { fetchHomepage } from "@/sanity/lib/utils";
@@ -34,7 +34,7 @@ export default function RootLayout({
       <head>
         <link rel="preload" as="image" href="/solander-drawing.png" />
       </head>
-      <body className={`${AcuminSansRegular.variable}`}>
+      <body className={`${AcuminSansLight.variable} ${AcuminSansRegular.variable}`}>
         {children}
         <Footer/ >
       </body>

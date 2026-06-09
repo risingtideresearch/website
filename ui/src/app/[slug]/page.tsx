@@ -7,6 +7,7 @@ import {
 import { PortableText } from "next-sanity";
 import styles from "./page.module.scss";
 import { formatDate } from "../util";
+import Link from "next/link";
 import Header from "../components/Header";
 import UpdatesList from "../components/UpdatesList";
 import { notFound } from "next/navigation";
@@ -64,12 +65,29 @@ export default async function Page({
     <div>
       <Header>
         <div className={styles.header}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h3>{program.activities?.[0].name}</h3>
+          {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <h6>{program.activities?.[0].name}</h6>
 
-            <h3>Updated {formatDate(program._updatedAt)}</h3>
+            <h6>Updated {formatDate(program._updatedAt)}</h6>
+          </div> */}
+          <div>
+            {program.iconUrl && (
+              <Image
+                src={program.iconUrl}
+                alt={program.iconAlt ?? ""}
+                aria-hidden={!program.iconAlt}
+                width={144}
+                height={144}
+                unoptimized
+              />
+            )}
           </div>
-          <h1>{program.name}</h1>
+          <div>
+            <div>
+              <h6>{program.activities?.[0].name}</h6>
+              <h1>{program.name}</h1>
+            </div>
+          </div>
         </div>
       </Header>
       <main className={styles.body}>
@@ -84,29 +102,24 @@ export default async function Page({
               className={styles.image}
             />
           )}
-          {program.link?.map((l: { url: string; title?: string }) => (
-            <>
-              <h3>Link</h3>
-              <a
-                key={l.url}
-                href={l.url}
-                className={styles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {l.title || l.url}
-              </a>
-            </>
-          ))}
-
-          {updates.length > 0 && <UpdatesList updates={updates} />}
-
-          {program.content && (
-            <>
-              <h3>Overview</h3>
-              <PortableText value={program.content} components={portableTextComponents} />
-            </>
+          {updates.length > 0 && (
+            <section>
+              <UpdatesList updates={updates} />
+            </section>
           )}
+          {program.content && (
+            <section>
+              <h3>Overview</h3>
+              <PortableText
+                value={program.content}
+                components={portableTextComponents}
+              />
+            </section>
+          )}
+          <section className={styles.footer}>
+            <Link href="/" className={styles["programs-link"]}>← Programs</Link>
+            <h6>Updated <time dateTime={program._updatedAt}>{formatDate(program._updatedAt)}</time></h6>
+          </section>
         </div>
       </main>
     </div>

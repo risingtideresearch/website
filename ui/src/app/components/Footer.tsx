@@ -10,6 +10,7 @@ export default async function Footer() {
           style={{ mixBlendMode: "multiply" }}
           width={2220}
           height={1890}
+          sizes="304px"
           src="/solander-drawing-2.png"
           alt="Line drawing of Solander 38"
         />

@@ -12,13 +12,13 @@
   }
 
   @media (max-width: 700px) {
-    gap: 8vw;
+    gap: 1rem;
     align-self: flex-start;
-    grid-template-columns: 34vw 1fr;
+    grid-template-columns: 8.625rem 1fr;
     margin-top: 2rem;
 
     img {
-      width: 34vw;
+      width: 8.625rem;
     }
   }
 }

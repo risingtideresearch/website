@@ -69,8 +69,8 @@
 
 @media (max-width: 700px) {
   .program {
-    column-gap: 1.25rem;
-    grid-template-columns: 1fr 2fr;
+    column-gap: 1rem;
+    grid-template-columns: 7.75rem 1fr;
 
     h6 {
       text-align: left;
@@ -92,7 +92,7 @@
     display: block;
 
     a {
-      display: inline-flex;
+      display: inline;
       align-items: flex-start;
       gap: 0.25rem;
     }
@@ -114,7 +114,7 @@
     vertical-align: middle;
 
     svg {
-      margin-top: 0.25rem;
+      margin-top: -0.25rem;
       width: 1.5rem;
       height: 1.5rem;
     }

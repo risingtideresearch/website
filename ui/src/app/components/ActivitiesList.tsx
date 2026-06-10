@@ -60,9 +60,9 @@ export default async function ActivitiesList() {
                             program,
                             <>
                               <span>{program.name}</span>
-                              <span className={styles["icon--mobile"]}>
+                              <div className={styles["icon--mobile"]}>
                                 {linkIcon(program)}
-                              </span>
+                              </div>
                             </>,
                           )}
                         </h3>

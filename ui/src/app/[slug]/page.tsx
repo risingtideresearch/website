@@ -63,7 +63,7 @@ export default async function Page({
 
   return (
     <div>
-      <Header>
+      <Header responsiveLogo>
         <div className={styles.header}>
           {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h6>{program.activities?.[0].name}</h6>

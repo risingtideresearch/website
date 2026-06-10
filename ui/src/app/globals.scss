@@ -12,6 +12,13 @@
 .font-acumin-regular {
   font-family: var(--font-acumin-sans-regular);
   font-weight: 400;
+
+  &--mobile {
+    @media (max-width: 700px) {
+      font-family: var(--font-acumin-sans-regular);
+      font-weight: 400;
+    }
+  }
 }
 .font-acumin-semibold {
   font-family: var(--font-acumin-sans-semibold);

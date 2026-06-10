@@ -8,7 +8,7 @@ export default function Home({ content }: { content: Homepage }) {
   return (
     <div className={styles.page}>
       <Header>
-        <h1>{content.description}</h1>
+        <h1 className="font-acumin-regular--mobile">{content.description}</h1>
       </Header>
       <main>
         <div>

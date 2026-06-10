@@ -11,13 +11,14 @@
     margin: 0;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     gap: 8vw;
     align-self: flex-start;
-    grid-template-columns: 32vw 1fr;
+    grid-template-columns: 34vw 1fr;
+    margin-top: 2rem;
 
     img {
-      width: 32vw;
+      width: 34vw;
     }
   }
 }
@@ -94,7 +95,7 @@
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     display: block;
     margin-top: 2rem;
   }

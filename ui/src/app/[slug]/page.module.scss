@@ -95,6 +95,19 @@
     }
   }
 
+  a {
+    svg {
+      margin-top: -0.25em;
+      margin-left: 0.25rem;
+    }
+
+    &:hover {
+      svg {
+        stroke: var(--ocean-fog-blue);
+      }
+    }
+  }
+
   @media (max-width: 700px) {
     display: block;
     margin-top: 2rem;

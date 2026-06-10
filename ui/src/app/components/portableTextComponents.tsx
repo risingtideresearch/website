@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { ExternalLinkIcon } from "./LinkIcon";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { projectId, dataset } from "@/sanity/lib/api";
 
@@ -33,6 +34,7 @@ export const portableTextComponents = {
           {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         >
           {children}
+          {isExternal && <ExternalLinkIcon size="0.75em" />}
         </a>
       );
     },

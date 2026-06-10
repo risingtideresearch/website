@@ -41,7 +41,7 @@ export default function NewsletterForm() {
           required
         />
         <button
-          className={styles.button}
+          className={`${styles.button} font-acumin-light`}
           type="submit"
           disabled={state === "loading"}
         >

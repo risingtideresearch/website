@@ -1,7 +1,7 @@
 :root {
   --ocean-fog-blue: #b6cad3;
   --background: #ffffff;
-  --foreground: #171717;
+  --black: #171717;
 }
 
 .font-acumin-light {
@@ -21,7 +21,7 @@
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #b7c9d2;
+    --black: #b7c9d2;
   }
 } */
 
@@ -31,29 +31,12 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  color: var(--black);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 5rem;
-
-  &:before {
-    position: fixed;
-    content: "";
-    pointer-events: none;
-    width: calc(100vw - 20px);
-    height: calc(100% - 20px);
-    top: 0;
-    left: 0;
-    border: 10px solid var(--ocean-fog-blue);
-    z-index: 1;
-    @media (max-width: 800px) {
-      width: calc(100vw - 12px);
-      height: calc(100% - 12px);
-      border: 6px solid var(--ocean-fog-blue);
-    }
-  }
 
   // &:after {
   //   position: fixed;
@@ -63,12 +46,12 @@ body {
   //   height: calc(100% - 21px);
   //   top: 10px;
   //   left: 10px;
-  //   border: 1px solid #171717;
+  //   border: 1px solid var(--black);
   //   z-index: 2;
   // }
 
   @media (max-width: 800px) {
-    padding-top: 1rem;
+    padding-top: 0;
   }
 }
 
@@ -126,7 +109,7 @@ li {
   a {
     font-weight: inherit;
     text-decoration-line: underline;
-    text-decoration-color: #171717;
+    text-decoration-color: var(--black);
     text-underline-offset: 0.25em;
     text-decoration-thickness: 1px;
 
@@ -189,7 +172,7 @@ header {
   }
 
   @media (max-width: 800px) {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
     padding-bottom: 0;
   }
 }

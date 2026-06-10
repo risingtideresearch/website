@@ -8,17 +8,19 @@
 .input {
   font-size: 0.875rem;
   padding: 0.4rem 0.5rem;
-  border: 1px solid #171717;
+  border: 1px solid var(--black);
   background: transparent;
   outline: none;
   width: 100%;
+  border-radius: 0;
 
   &::placeholder {
     color: #aaa;
   }
 
   &:focus {
-    border-color: var(--ocean-fog-blue);
+    border-color: var(--black);
+    background: #fff;
   }
 
   &:-internal-autofill-selected {
@@ -39,13 +41,14 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 0.75rem;
-  border: 1px solid #171717;
+  border: 1px solid var(--black);
+  color: var(--black);
   background: transparent;
   cursor: pointer;
   align-self: flex-start;
 
   &:hover:not(:disabled) {
-    background: #171717;
+    background: var(--black);
     color: #fff;
   }
 

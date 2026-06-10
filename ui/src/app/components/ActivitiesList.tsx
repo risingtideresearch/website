@@ -43,7 +43,7 @@ export default async function ActivitiesList() {
                   .map((program) => (
                     <li key={program._id} className={styles.program}>
                       <div className={styles.program__icon}>
-                        {program.iconUrl && (
+                        {program.iconUrl && link(program,
                           <Image
                             src={program.iconUrl}
                             alt={program.iconAlt ?? ""}

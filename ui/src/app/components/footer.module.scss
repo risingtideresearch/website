@@ -23,7 +23,6 @@
   margin: 0 auto;
   padding: 0 1.5rem;
 
-
   > div {
     width: max-content;
     margin: 0 auto;
@@ -31,10 +30,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    @media (max-width: 640px) {
-      margin: 0;
-      gap: 1rem;
-    }
   }
 
   img {
@@ -59,5 +54,10 @@
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+
+    > div {
+      margin: 0;
+      gap: 1rem;
+    }
   }
 }

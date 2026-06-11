@@ -7,19 +7,9 @@
 
 .header {
   margin: 3rem 0 0 0;
+
   h1 {
     margin: 0;
-  }
-
-  @media (max-width: 640px) {
-    gap: 1rem;
-    align-self: flex-start;
-    grid-template-columns: 8.625rem 1fr;
-    margin-top: 2rem;
-
-    img {
-      width: 8.625rem;
-    }
   }
 }
 
@@ -29,24 +19,21 @@
   margin-bottom: 2rem;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
 .body {
   section {
     border-top: 1px solid var(--black);
     padding-top: 1rem;
     margin-top: 0;
   }
+
   h4 {
     margin: 0 0 -0.5rem 0;
   }
+
   h3 {
     margin: 0 0 0.75rem 0;
   }
+
   p,
   li {
     margin-top: 1.5rem;
@@ -63,14 +50,36 @@
     }
   }
 
-  a {
-    svg {
-      margin-top: -0.25em;
-      margin-left: -0.4125rem;
+  a svg {
+    margin-top: -0.25em;
+    margin-left: 0.25rem;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  a svg {
+    margin-top: -0.25em;
+    margin-left: -0.4125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    gap: 1rem;
+    align-self: flex-start;
+    grid-template-columns: 8.625rem 1fr;
+    margin-top: 2rem;
+
+    img {
+      width: 8.625rem;
     }
   }
 
-  @media (max-width: 640px) {
+  .body {
     display: block;
     margin-top: 2rem;
   }

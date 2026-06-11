@@ -3,7 +3,6 @@ import { Homepage } from "@/sanity/lib/utils";
 import Header from "./Header";
 import ActivitiesList from "./ActivitiesList";
 import Directory from "./Directory";
-import ResourcesList from "./ResourcesList";
 export default function Home({ content }: { content: Homepage }) {
   return (
     <div className={styles.page}>

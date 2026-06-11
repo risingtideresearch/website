@@ -1,7 +1,7 @@
 import { fetchDirectory } from "@/sanity/lib/utils";
 import styles from './directory.module.scss';
 
-export default async function ActivitiesList() {
+export default async function Directory() {
   const { data } = await fetchDirectory();
 
   return (

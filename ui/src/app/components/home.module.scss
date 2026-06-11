@@ -1,5 +1,5 @@
-.page {
-  @media (max-width: 640px) {
+@media (max-width: 640px) {
+  .page {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -10,7 +10,7 @@
       line-height: 1.2;
     }
 
-    h3 { 
+    h3 {
       a {
         text-decoration: none;
       }

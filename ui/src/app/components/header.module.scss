@@ -2,6 +2,7 @@
   display: block;
   width: 100%;
   max-width: 24.625rem;
+
   svg {
     display: block;
     overflow: visible;
@@ -10,8 +11,18 @@
   &:hover svg {
     background: var(--ocean-fog-blue);
   }
+}
 
-  @media (max-width: 640px) {
+.logo--stacked {
+  display: block;
+}
+
+.logo--compact {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .logo {
     position: relative;
     height: auto;
 
@@ -25,20 +36,12 @@
       max-width: 100%;
     }
   }
-}
 
-.logo--stacked {
-  display: block;
-
-  @media (max-width: 640px) {
+  .logo--stacked {
     display: none;
   }
-}
 
-.logo--compact {
-  display: none;
-
-  @media (max-width: 640px) {
+  .logo--compact {
     display: block;
   }
 }

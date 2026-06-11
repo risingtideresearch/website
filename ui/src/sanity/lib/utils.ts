@@ -4,7 +4,6 @@ import {
   activitiesQuery,
   directoryQuery,
   homepageQuery,
-  lastUpdatedQuery,
   programsQuery,
   resourcesQuery,
   updatesQuery,
@@ -31,11 +30,6 @@ export async function fetchHomepage(): Promise<HomepageResponse> {
   return { data };
 }
 
-export async function fetchLastUpdated(): Promise<string> {
-  const data = await sanityFetch<string>({ query: lastUpdatedQuery() });
-
-  return data;
-}
 
 export type Program = {
   _updatedAt: string;
@@ -70,6 +64,7 @@ export type Program = {
   iconAlt?: string;
   activity?: string;
   hasContent?: boolean;
+  hasPage?: boolean;
 };
 
 type Programs = Array<Program>;

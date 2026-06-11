@@ -20,14 +20,6 @@ export const homepageQuery = () => {
 
 /**
  *
- */
-export const lastUpdatedQuery = () => {
-  return `
-  *[!(_type in ["sanity.imageAsset", "sanity.fileAsset", "system.group"])] | order(_updatedAt desc) [0]._updatedAt`;
-};
-
-/**
- *
  * @returns
  */
 export const programsQuery = (slug?: string, filterForPage?: boolean) => {

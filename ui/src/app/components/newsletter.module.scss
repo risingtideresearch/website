@@ -32,10 +32,6 @@
   &[type="email"] {
     min-width: 13rem;
     width: 100%;
-
-    @media (max-width: 640px) {
-      min-width: 11rem;
-    }
   }
 }
 
@@ -64,4 +60,10 @@
 .error {
   font-size: 0.75rem;
   color: #c00;
+}
+
+@media (max-width: 640px) {
+  .input[type="email"] {
+    min-width: 11rem;
+  }
 }

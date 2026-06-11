@@ -1,26 +1,28 @@
 .directory {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-
-    @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-    }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 .directory__group {
-    gap: 1rem;
-    margin: 1rem 0 3rem 0;
+  gap: 1rem;
+  margin: 1rem 0 3rem 0;
 }
 
 .directory__group__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-    max-width: 36rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 36rem;
+}
 
-    @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 640px) {
+  .directory {
+    grid-template-columns: 1fr;
+  }
+
+  .directory__group__list {
+    grid-template-columns: 1fr;
+  }
 }

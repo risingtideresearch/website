@@ -31,11 +31,15 @@
 }
 
 .program__header {
-  display: grid;
+  display: flex;
   gap: 2rem;
-  grid-template-columns: 1fr 6rem;
   align-content: start;
   align-items: flex-end;
+  justify-content: space-between;
+
+  h6 {
+    white-space: nowrap;
+  }
 }
 
 .program__description {
@@ -43,7 +47,7 @@
   margin-bottom: 1rem;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 4.5rem;
+  grid-template-columns: 1fr 4.75rem;
   align-items: flex-start;
 
   a {
@@ -67,7 +71,7 @@
   margin: 2rem 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 640px) {
   .program {
     column-gap: 1rem;
     grid-template-columns: 7.75rem 1fr;

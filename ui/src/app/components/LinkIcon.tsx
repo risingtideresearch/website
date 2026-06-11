@@ -19,12 +19,12 @@ export function ExternalLinkIcon({ size = 34 }: { size?: number | string } = {})
   );
 }
 
-export function InternalLinkIcon() {
+export function LeftArrowIcon({ size = 34 }: { size?: number | string } = {}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="34"
-      height="34"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -32,6 +32,27 @@ export function InternalLinkIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
+      style={{ display: "inline", verticalAlign: "middle" }}
+    >
+      <path d="M16.5 12h-9M11 8.5l-3.5 3.5 3.5 3.5" />
+    </svg>
+  );
+}
+
+export function InternalLinkIcon({ size = 34, style = {} }: { size?: number | string, style?: object } = {}) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      style={{ display: "inline", verticalAlign: "middle", ...style }}
     >
       <circle cx="12" cy="12" r="11" />
       <path d="M7.5 12h9M13 8.5l3.5 3.5-3.5 3.5" />

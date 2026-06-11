@@ -30,7 +30,7 @@ export const lastUpdatedQuery = () => {
  *
  * @returns
  */
-export const programsQuery = (slug?: string) => {
+export const programsQuery = (slug?: string, filterForPage?: boolean) => {
   if (slug) {
     return `
     *[_type=="program"${slug ? ` && slug.current == "${slug}"` : ""}]{
@@ -54,13 +54,20 @@ export const programsQuery = (slug?: string) => {
     }`;
   }
 
+  let query = "";
+  if (filterForPage) {
+    query += `&& defined(*[_type=="activity" && references(^._id)][0])`;
+  }
+
   return `
-  *[_type=="program" && defined(content) && length(content) > 0]{
+  *[_type=="program" && defined(*[_type=="activity" && references(^._id)][0]) ${query}]{
     _id,
     name,
     description,
     _lastUpdated,
     slug,
+    link,
+    "hasPage": (defined(link.url) || count(content[_type != "block" || count(children[text != ""]) > 0]) > 0),
     "iconUrl": icon.asset->url,
     "iconAlt": icon.asset->altText,
     "activity": *[_type=="activity" && references(^._id)][0].name,

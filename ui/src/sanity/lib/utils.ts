@@ -76,8 +76,8 @@ type Programs = Array<Program>;
 
 type ProgramsResponse = { data: Programs };
 
-export async function fetchPrograms(): Promise<ProgramsResponse> {
-  const data = await sanityFetch<Programs>({ query: programsQuery() });
+export async function fetchPrograms(filterForPage = false): Promise<ProgramsResponse> {
+  const data = await sanityFetch<Programs>({ query: programsQuery(undefined, filterForPage) });
 
   return { data };
 }

@@ -7,7 +7,6 @@ import {
 import { PortableText } from "next-sanity";
 import styles from "./page.module.scss";
 import { formatDate } from "../util";
-// import Link from "next/link";
 import Header from "../components/Header";
 import UpdatesList from "../components/UpdatesList";
 import { notFound } from "next/navigation";
@@ -15,6 +14,8 @@ import Image from "next/image";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
 import { portableTextComponents } from "../components/portableTextComponents";
+import Link from "next/link";
+import { LeftArrowIcon } from "../components/LinkIcon";
 
 const builder = createImageUrlBuilder(client);
 
@@ -38,11 +39,13 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const { data } = await fetchPrograms();
+  const { data } = await fetchPrograms(true);
 
-  return data.map((program: Program) => ({
-    slug: program.slug.current,
-  }));
+  return data
+    .filter((program: Program) => !program.link?.url)
+    .map((program: Program) => ({
+      slug: program.slug.current,
+    }));
 }
 
 export default async function Page({
@@ -55,7 +58,7 @@ export default async function Page({
 
   const program = data[0];
 
-  if (!program) {
+  if (!program || program.link?.url) {
     notFound();
   }
 
@@ -84,7 +87,7 @@ export default async function Page({
           </div>
           <div>
             <div>
-              <h6>{program.activities?.[0].name}</h6>
+              <h6>{program.activities?.[0]?.name}</h6>
               <h1>{program.name}</h1>
             </div>
           </div>
@@ -116,11 +119,16 @@ export default async function Page({
               />
             </section>
           )}
-          <section className={styles.footer}>
-            {/* <Link href="/" className={styles["programs-link"]}>← Programs</Link> */}
-            <h6>Updated <time dateTime={program._updatedAt}>{formatDate(program._updatedAt)}</time></h6>
-          </section>
         </div>
+        <section className={styles.footer} style={{ gridColumn: "span 2" }}>
+          <h6><Link href="/" className={styles["programs-link"]}><LeftArrowIcon size="1.5rem" />Back</Link></h6>
+          <h6>
+            Updated{" "}
+            <time dateTime={program._updatedAt}>
+              {formatDate(program._updatedAt)}
+            </time>
+          </h6>
+        </section>
       </main>
     </div>
   );

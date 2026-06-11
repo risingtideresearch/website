@@ -5,9 +5,9 @@ import styles from "./newsletter.module.scss";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
-    "idle",
-  );
+  const [state, setState] = useState<
+    "idle" | "loading" | "success" | "already_subscribed" | "blocked" | "error"
+  >("idle");
 
   async function submit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,15 +21,19 @@ export default function NewsletterForm() {
       setState("success");
     } else {
       const { error } = await res.json();
-      setState(error === "already_subscribed" ? "success" : "error");
+      if (error === "already_subscribed") setState("already_subscribed");
+      else if (error === "subscriber_blocked") setState("blocked");
+      else setState("error");
     }
   }
 
-  if (state === "success") return <p>Thanks for subscribing!</p>;
+  if (state === "success") return <p className="font-acumin-regular">Thanks for subscribing!</p>;
+  if (state === "already_subscribed") return <p className="font-acumin-regular">You&rsquo;re already subscribed!</p>;
 
   return (
     <>
-      <form className={styles.form} onSubmit={submit} autoComplete="on">
+      <p id="newsletter-label" className="font-acumin-regular">Keep up-to-date with our latest work:</p>
+      <form className={styles.form} onSubmit={submit} autoComplete="on" aria-labelledby="newsletter-label">
         <input
           className={styles.input}
           type="email"
@@ -41,7 +45,7 @@ export default function NewsletterForm() {
           required
         />
         <button
-          className={`${styles.button} font-acumin-light`}
+          className={`${styles.button} font-acumin-regular`}
           type="submit"
           disabled={state === "loading"}
         >
@@ -49,7 +53,12 @@ export default function NewsletterForm() {
         </button>
       </form>
       {state === "error" && (
-        <p className={styles.error}>Something went wrong — please try again.</p>
+        <p className={`font-acumin-regular ${styles.error}`}>Something went wrong — please try again.</p>
+      )}
+      {state === "blocked" && (
+        <p className={`font-acumin-regular ${styles.error}`}>
+          Unable to subscribe — please email us at info@risingtideresearch.org.
+        </p>
       )}
     </>
   );

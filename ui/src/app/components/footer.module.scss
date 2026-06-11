@@ -18,7 +18,7 @@
 .inner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2.25rem;
+  gap: 1rem;
   max-width: 64rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -44,9 +44,19 @@
   gap: 0.5rem;
 }
 
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    > div {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .footer {
-    padding: 5rem 1rem;
+    padding: 7rem 1rem 5rem 1rem;
   }
 
   .inner {

@@ -43,16 +43,18 @@ export default async function ActivitiesList() {
                   .map((program) => (
                     <li key={program._id} className={styles.program}>
                       <div className={styles.program__icon}>
-                        {program.iconUrl && link(program,
-                          <Image
-                            src={program.iconUrl}
-                            alt={program.iconAlt ?? ""}
-                            aria-hidden={!program.iconAlt}
-                            width={144}
-                            height={144}
-                            unoptimized
-                          />
-                        )}
+                        {program.iconUrl &&
+                          link(
+                            program,
+                            <Image
+                              src={program.iconUrl}
+                              alt={program.iconAlt ?? ""}
+                              aria-hidden={!program.iconAlt}
+                              width={144}
+                              height={144}
+                              unoptimized
+                            />,
+                          )}
                       </div>
                       <div className={styles.program__header}>
                         <h3>
@@ -60,9 +62,6 @@ export default async function ActivitiesList() {
                             program,
                             <>
                               <span>{program.name}</span>
-                              <div className={styles["icon--mobile"]}>
-                                {linkIcon(program)}
-                              </div>
                             </>,
                           )}
                         </h3>
@@ -75,6 +74,10 @@ export default async function ActivitiesList() {
                             <span>In progress</span>
                           )}
                         </h6>
+
+                        <div className={styles["icon--mobile"]}>
+                          {linkIcon(program)}
+                        </div>
                       </div>
                       <div className={styles.program__description}>
                         <p>{program.description}</p>

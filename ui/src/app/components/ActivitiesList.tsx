@@ -76,7 +76,7 @@ export default async function ActivitiesList() {
                         </h6>
 
                         <div className={styles["icon--mobile"]}>
-                          {linkIcon(program)}
+                          {link(program, <>{linkIcon(program)}</>)}
                         </div>
                       </div>
                       <div className={styles.program__description}>

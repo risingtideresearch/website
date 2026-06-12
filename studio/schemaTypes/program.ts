@@ -43,14 +43,6 @@ export const program = defineType({
     }),
 
     defineField({
-      name: 'image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-
-    defineField({
       name: 'icon',
       title: 'Icon (SVG)',
       type: 'image',
@@ -65,8 +57,18 @@ export const program = defineType({
       rows: 5,
     }),
 
+
+    defineField({
+      name: 'image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+
     defineField({
       name: 'content',
+      description: 'If not external link, internal page will display overview.',
       title: 'Overview',
       type: 'array',
       of: [

@@ -119,6 +119,19 @@ export const updatesQuery = (programId: string) => {
   }`;
 };
 
+export const allUpdatesQuery = () => {
+  return `
+  *[_type == "update"] | order(date desc) {
+    _id,
+    title,
+    content,
+    date,
+    link,
+    "programSlug": program->slug.current,
+    "programName": program->name,
+  }`;
+};
+
 export const directoryQuery = () => {
   return `
   *[_type == "personGroup"] {

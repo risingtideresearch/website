@@ -2,6 +2,7 @@ import { PortableTextBlock } from "next-sanity";
 import { sanityFetch } from "./live";
 import {
   activitiesQuery,
+  allUpdatesQuery,
   directoryQuery,
   homepageQuery,
   programsQuery,
@@ -153,6 +154,17 @@ type UpdatesResponse = { data: Array<Update> };
 
 export async function fetchUpdates(programId: string): Promise<UpdatesResponse> {
   const data = await sanityFetch<Array<Update>>({ query: updatesQuery(programId) });
+
+  return { data };
+}
+
+export type UpdateWithProgram = Update & {
+  programSlug?: string;
+  programName?: string;
+};
+
+export async function fetchAllUpdates(): Promise<{ data: Array<UpdateWithProgram> }> {
+  const data = await sanityFetch<Array<UpdateWithProgram>>({ query: allUpdatesQuery() });
 
   return { data };
 }

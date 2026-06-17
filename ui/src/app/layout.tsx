@@ -33,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="image" href="/solander-drawing.png" />
+        <link rel="alternate" type="application/rss+xml" title="Rising Tide Research Foundation" href="/rss.xml" />
       </head>
       <body className={`${AcuminSansLight.variable} ${AcuminSansRegular.variable}`}>
         {children}

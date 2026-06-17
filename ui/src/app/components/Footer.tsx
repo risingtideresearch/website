@@ -1,13 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./footer.module.scss";
 import NewsletterForm from "./NewsletterForm";
 import { fetchPrograms } from "@/sanity/lib/utils";
-import { ExternalLinkIcon, InternalLinkIcon } from "./LinkIcon";
-import { formatDate } from "../util";
-import Logo from "./Logo";
-
-const buildDate = new Date().toISOString();
 
 export default async function Footer() {
   const { data: programs } = await fetchPrograms();
@@ -32,11 +26,6 @@ export default async function Footer() {
             </a>
             , [CC BY 4.0].
           </p>
-
-          {/* <p className="font-acumin-regular">
-            Site updated{" "}
-            <time dateTime={buildDate}>{formatDate(buildDate)}</time>
-          </p> */}
         </div>
         <div>
           <h6>Programs</h6>
@@ -53,12 +42,8 @@ export default async function Footer() {
                       rel="noopener noreferrer"
                     >
                       {program.name}
-                      {/* <ExternalLinkIcon size="1em" /> */}
                     </a>
                   ) : (
-                    // <Link key={program._id} href={`/${program.slug.current}`}>
-                    //   {program.name}<InternalLinkIcon size="1em" />
-                    // </Link>
                     <Link key={program._id} href={`/${program.slug.current}`}>
                       {program.name}
                     </Link>
@@ -69,27 +54,14 @@ export default async function Footer() {
               })}
           </nav>
         </div>
-        <div className={`${styles.info} footer-info`}>
+        <div className={`footer-info`}>
           <h6>Connect with us</h6>
           <p className="font-acumin-regular">info@risingtideresearch.org</p>
           <div>
             <NewsletterForm />
           </div>
         </div>
-
-        {/* <div>
-          <Image
-            style={{ mixBlendMode: "multiply" }}
-            width={2220}
-            height={1890}
-            sizes="304px"
-            src="/solander-drawing-2.png"
-            alt="Line drawing of Solander 38"
-          />
-        </div> */}
       </div>
-      {/* <div className={styles.inner}>
-      </div> */}
     </footer>
   );
 }

@@ -5,6 +5,7 @@ import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
+import {netlifyDeploy} from './plugins/netlifyDeploy'
 
 export default defineConfig({
   name: 'default',
@@ -13,7 +14,7 @@ export default defineConfig({
   projectId: 'az48uhnz',
   dataset: 'production',
 
-  plugins: [structureTool({structure, defaultDocumentNode}), visionTool(), media()],
+  plugins: [structureTool({structure, defaultDocumentNode}), visionTool(), media(), netlifyDeploy()],
 
   vite: {
     optimizeDeps: {

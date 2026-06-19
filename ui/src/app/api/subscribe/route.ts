@@ -18,13 +18,17 @@ export async function POST(req: Request) {
   const body = await res.json().catch(() => null);
 
   if (res.status === 400) {
+    if (body?.code === "subscriber_blocked") {
+      return Response.json({ error: "subscriber_blocked" }, { status: 400 });
+    }
+
     const isAlreadySubscribed =
       body?.email_address?.some?.((msg: string) =>
         msg.toLowerCase().includes("already") || msg.toLowerCase().includes("unique")
       ) ?? false;
 
     if (isAlreadySubscribed) {
-      return Response.json({ error: "already_subscribed" }, { status: 422 });
+      return Response.json({ error: "already_subscribed" }, { status: 400 });
     }
   }
 

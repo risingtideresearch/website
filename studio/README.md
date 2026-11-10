@@ -1,6 +1,6 @@
-# RTRF Site — Sanity Studio
+# ESS Site — Sanity Studio
 
-Content studio for [risingtideresearch.org](https://risingtideresearch.org).
+Content studio for [electricshipwrights.org](https://electricshipwrights.org).
 
 ## Setup
 

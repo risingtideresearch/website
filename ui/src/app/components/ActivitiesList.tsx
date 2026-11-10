@@ -46,14 +46,21 @@ export default async function ActivitiesList() {
                         {program.iconUrl &&
                           link(
                             program,
-                            <Image
-                              src={program.iconUrl}
-                              alt={program.iconAlt ?? ""}
-                              aria-hidden={!program.iconAlt}
-                              width={144}
-                              height={144}
-                              unoptimized
-                            />,
+                            <span className={styles.program__image}>
+                              <Image
+                                src={program.iconUrl}
+                                alt={program.iconAlt ?? ""}
+                                aria-hidden={!program.iconAlt}
+                                width={144}
+                                height={144}
+                                unoptimized
+                              />
+                              {linkIcon(program) && (
+                                <span className={styles.program__overlay} aria-hidden="true">
+                                  {linkIcon(program)}
+                                </span>
+                              )}
+                            </span>,
                           )}
                       </div>
                       <div className={styles.program__header}>

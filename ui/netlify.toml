@@ -5,6 +5,33 @@
 [[plugins]]
     package = "@netlify/plugin-nextjs"
 
+# Permanently redirect the old Rising Tide domain to the new ESS domain,
+# keeping the path (e.g. /some-program → electricshipwrights.org/some-program).
+# risingtideresearch.org must stay attached to this Netlify site as a domain alias.
+[[redirects]]
+  from = "https://risingtideresearch.org/*"
+  to = "https://electricshipwrights.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.risingtideresearch.org/*"
+  to = "https://electricshipwrights.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://risingtideresearch.org/*"
+  to = "https://electricshipwrights.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.risingtideresearch.org/*"
+  to = "https://electricshipwrights.org/:splat"
+  status = 301
+  force = true
+
 [build.environment]
   NODE_VERSION = "20"
   SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SANITY_DATASET,NEXT_PUBLIC_SANITY_PROJECT_ID"

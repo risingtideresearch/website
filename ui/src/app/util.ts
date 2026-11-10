@@ -1,3 +1,5 @@
+export const SITE_URL = "https://electricshipwrights.org";
+
 export function formatDate(d: string) {
   const time = new Date(d);
   const options: Intl.DateTimeFormatOptions = {

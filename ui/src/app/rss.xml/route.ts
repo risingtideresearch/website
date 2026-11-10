@@ -1,7 +1,6 @@
 import { fetchAllUpdates, UpdateWithProgram } from "@/sanity/lib/utils";
 import { PortableTextBlock } from "next-sanity";
-
-const SITE_URL = "https://risingtideresearch.org";
+import { SITE_URL } from "../util";
 
 function escapeXml(str: string): string {
   return str
@@ -54,9 +53,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rising Tide Research Foundation</title>
+    <title>Electric Shipwrights Society</title>
     <link>${SITE_URL}</link>
-    <description>Updates from the Rising Tide Research Foundation</description>
+    <description>Updates from the Electric Shipwrights Society</description>
     <language>en-us</language>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     ${items}

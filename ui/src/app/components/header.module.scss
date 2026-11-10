@@ -1,24 +1,26 @@
 .logo {
   display: block;
   width: 100%;
-  max-width: 24.625rem;
+  max-width: 16.5rem;
 
   svg {
     display: block;
     overflow: visible;
+
+    path,
+    polygon,
+    rect {
+      transition: fill 0.15s ease;
+    }
   }
 
   &:hover svg {
-    background: var(--ocean-fog-blue);
+    path,
+    polygon,
+    rect {
+      fill: var(--ocean-fog-blue);
+    }
   }
-}
-
-.logo--stacked {
-  display: block;
-}
-
-.logo--compact {
-  display: none;
 }
 
 @media (max-width: 640px) {
@@ -35,14 +37,5 @@
     svg {
       max-width: 100%;
     }
-  }
-
-  .logo--stacked {
-    display: none;
-  }
-
-  .logo--compact {
-    display: block;
-    aspect-ratio: 726 / 77;
   }
 }

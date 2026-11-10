@@ -1,5 +1,5 @@
 :root {
-  --ocean-fog-blue: #b6cad3;
+  --ocean-fog-blue: #B6C8D2;
   --background: #ffffff;
   --black: #171717;
 }
@@ -54,7 +54,7 @@ h2 {
 h3 {
   @extend .font-acumin-regular;
   margin: 0;
-  font-size: 1.625rem;
+  font-size: 1.75rem;
   line-height: 1.25em;
 }
 
@@ -67,12 +67,12 @@ h4 {
 h6 {
   @extend .font-acumin-regular;
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 0.8375rem;
 }
 
 figcaption {
   @extend .font-acumin-light;
-  font-size: 0.8125rem;
+  font-size: 0.8375rem;
   text-align: center;
   color: #474747;
   margin: 0.5rem 0;
@@ -89,6 +89,23 @@ a {
   text-decoration: none;
   color: inherit;
   font-weight: inherit;
+  transition:
+    color 0.1s ease-out,
+    text-decoration-color 0.1s ease-out;
+
+  &:hover {
+    color: var(--ocean-fog-blue);
+  }
+
+  svg {
+    transition: stroke 0.1s ease-out;
+  }
+}
+
+// The footer background fades to ocean fog blue, so hovered link text
+// would disappear against it — keep it dark there.
+footer a:hover {
+  color: var(--black);
 }
 
 p,

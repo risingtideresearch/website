@@ -9,7 +9,7 @@ import {netlifyDeploy} from './plugins/netlifyDeploy'
 
 export default defineConfig({
   name: 'default',
-  title: 'RTRF Site',
+  title: 'ESS Site',
 
   projectId: 'az48uhnz',
   dataset: 'production',

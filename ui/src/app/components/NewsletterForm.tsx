@@ -57,7 +57,7 @@ export default function NewsletterForm() {
       )}
       {state === "blocked" && (
         <p className={`font-acumin-regular ${styles.error}`}>
-          Unable to subscribe — please email us at info@risingtideresearch.org.
+          Unable to subscribe — please email us at info@electricshipwrights.org.
         </p>
       )}
     </>

@@ -30,10 +30,10 @@ export async function generateMetadata({
 
   const ogImage = program?.image?.asset
     ? builder.image(program.image).width(1200).height(630).fit("crop").url()
-    : "https://rising-tide-research.netlify.app/preview.png";
+    : "/preview.png";
 
   return {
-    title: program?.name + " • Rising Tide Research Foundation",
+    title: program?.name + " • Electric Shipwrights Society",
     description: program?.description,
     openGraph: {
       type: "article",
@@ -71,7 +71,7 @@ export default async function Page({
 
   return (
     <div>
-      <Header responsiveLogo>
+      <Header>
         <div className={styles.header}>
           <div>
             {program.iconUrl && (

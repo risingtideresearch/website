@@ -5,7 +5,7 @@ import {Box, Button, Card, Stack, Text, Flex} from '@sanity/ui'
 
 const HOOK_URL = process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_URL
 const SITE_URL =
-  process.env.SANITY_STUDIO_SITE_URL || 'https://rising-tide-research.netlify.app'
+  process.env.SANITY_STUDIO_SITE_URL || 'https://electricshipwrights.org'
 
 type Status = 'idle' | 'deploying' | 'success' | 'error'
 

@@ -12,7 +12,7 @@ export default async function Footer() {
         <div>
           <h6>Site</h6>
           <nav className={styles.sitemap}>
-            <Link href="/">Rising Tide Research Foundation</Link>
+            <Link href="/">Electric Shipwrights Society</Link>
           </nav>
 
           <p className="font-acumin-regular">
@@ -56,7 +56,7 @@ export default async function Footer() {
         </div>
         <div className={`footer-info`}>
           <h6>Connect with us</h6>
-          <p className="font-acumin-regular">info@risingtideresearch.org</p>
+          <p className="font-acumin-regular">info@electricshipwrights.org</p>
           <div>
             <NewsletterForm />
           </div>

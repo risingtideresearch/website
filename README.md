@@ -1,6 +1,6 @@
-# RTRF Mainsite
+# ESS Mainsite
 
-Website for the Rising Tide Research Foundation at [risingtideresearch.org](https://risingtideresearch.org).
+Website for the Electric Shipwrights Society at [electricshipwrights.org](https://electricshipwrights.org).
 
 Built with Next.js and Sanity CMS, deployed on Netlify.
 

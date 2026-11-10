@@ -8,7 +8,7 @@ export const home = defineType({
       name: 'title',
       type: 'string',
       // hidden: true,
-      initialValue: 'Rising Tide Research Foundation',
+      initialValue: 'Electric Shipwrights Society',
     }),
     defineField({
       name: 'description',

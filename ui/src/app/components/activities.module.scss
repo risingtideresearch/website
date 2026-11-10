@@ -30,6 +30,39 @@
   grid-row: span 2;
 }
 
+.program__image {
+  position: relative;
+  display: block;
+}
+
+.program__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--ocean-fog-blue) 85%, transparent);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+
+  .program__image & svg {
+    width: 3rem;
+    height: 3rem;
+    stroke: var(--black);
+  }
+}
+
+a:focus-visible .program__overlay {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  a:hover .program__overlay {
+    opacity: 1;
+  }
+}
+
 .program__header {
   display: flex;
   gap: 2rem;

@@ -1,6 +1,6 @@
-# RTRF Site — Frontend
+# ESS Site — Frontend
 
-Next.js frontend for [risingtideresearch.org](https://risingtideresearch.org), pulling content from Sanity.
+Next.js frontend for [electricshipwrights.org](https://electricshipwrights.org), pulling content from Sanity.
 
 ## Setup
 

@@ -134,15 +134,13 @@ export const allUpdatesQuery = () => {
 
 export const directoryQuery = () => {
   return `
-  *[_type == "personGroup"] {
+  *[_type == "person"] {
     _id,
     name,
-    description,
-    "people": *[_type == "person" && references(^._id)] {
-      _id,
-      name,
-      image,
-      "role": groups[group._ref == ^.^._id][0].name
-    }
+    image,
+    "roles": coalesce(groups[] {
+      "role": name,
+      "group": group->name
+    }, [])
   }`;
 };

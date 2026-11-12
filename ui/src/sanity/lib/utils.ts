@@ -105,19 +105,15 @@ type DirectoryResponse = {
   data: Directory;
 };
 
-type Group = {
+type Directory = Array<DirectoryPerson>;
+
+export type DirectoryPerson = {
   _id: string;
   name: string;
-  description: string;
-  people: Array<Person>;
-};
-
-type Directory = Array<Group>;
-
-type Person = {
-  name: string;
-  _id: string;
-  role: string;
+  roles: Array<{
+    role: string | null;
+    group: string | null;
+  }>;
 };
 
 export async function fetchDirectory(): Promise<DirectoryResponse> {
